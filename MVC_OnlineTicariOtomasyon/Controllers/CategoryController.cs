@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
@@ -14,6 +15,21 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         {
             var category=(DbCategories.Categories.Where(x=>x.CategoryStatus==true)).ToList();
             return View(category);
+        }
+
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddCategory(Category newcategory)
+        {
+            DbCategories.Categories.Add(newcategory);
+            newcategory.CategoryStatus = true;
+            DbCategories.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
