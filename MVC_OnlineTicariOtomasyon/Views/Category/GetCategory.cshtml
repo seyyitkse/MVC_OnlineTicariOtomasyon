@@ -1,0 +1,25 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Category
+@{
+    ViewBag.Title = "GetCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Update Category</h2>
+<br />
+
+@using (Html.BeginForm("UpdateCategory", "Category", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Category Name:</label>
+        @Html.HiddenFor(x => x.CategoryID)
+
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-info" id="btnUpdate">Update</button>
+}
+<script>
+    $('#btnUpdate').click(function ()
+    {
+        alert('Update category was successful!')
+    });
+</script>

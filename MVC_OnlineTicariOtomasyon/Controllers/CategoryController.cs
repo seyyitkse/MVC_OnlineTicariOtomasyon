@@ -38,5 +38,19 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbCategories.SaveChanges();
             return RedirectToAction("Index");
         }
+   
+
+        public ActionResult GetCategory(int id) 
+        {
+            var category=DbCategories.Categories.Find(id);
+            return View("GetCategory",category);
+        }
+        public ActionResult UpdateCategory(Category update) 
+        {
+            var category = DbCategories.Categories.Find(update.CategoryID);
+            category.CategoryName = update.CategoryName;
+            DbCategories.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
