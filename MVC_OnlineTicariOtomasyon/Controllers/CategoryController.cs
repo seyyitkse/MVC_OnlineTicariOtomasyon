@@ -31,5 +31,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbCategories.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteCategory(int id) 
+        {
+            var delete=DbCategories.Categories.Find(id);
+            delete.CategoryStatus = false;
+            DbCategories.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
