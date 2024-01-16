@@ -1,14 +1,27 @@
-﻿ @{
+﻿@using MVC_OnlineTicariOtomasyon.Models.Classes
+@model List<Category>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
-}
+    }
 
-<table class="table table-bordered" style="margin-top:15px " >
+
+<table class="table table-bordered" style="margin-top:15px ">
     <tr>
-       <th>Category ID</th>
+        <th>Category ID</th>
         <th>Category Name</th>
+        <th>Actions</th>
     </tr>
-    <tr>
-        <td></td>
-    </tr>
-</table>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>
+                <a href="#" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</a>
+                <a href="#" class="btn btn-primary"><i class="fas fa-sliders-h"></i> Update</a>
+            </td>
+        </tr>
+    }   
+    </table>
