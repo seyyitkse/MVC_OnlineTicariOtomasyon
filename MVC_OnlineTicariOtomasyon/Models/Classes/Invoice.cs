@@ -7,34 +7,34 @@ using System.Web;
 
 namespace MVC_OnlineTicariOtomasyon.Models.Classes
 {
-    public class Invoince
+    public class Invoice
     {
         [Key]
-        public int InvoinceID { get; set; }
+        public int InvoiceID { get; set; }
 
 
         [Column(TypeName = "Char")]
         [StringLength(1)]
-        public string InvoinceSerial { get; set; }
+        public string InvoiceSerial { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(6)]
-        public string InvoinceSequence { get; set; }
+        public string InvoiceSequence { get; set; }
         public DateTime InvoinceDate { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(60)]
-        public string InvoinceTax { get; set; }
-        public DateTime InvoinceClock { get; set; }
+        public string InvoiceTax { get; set; }
+        public DateTime InvoiceClock { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
-        public string InvoinceDeliverer { get; set; }
+        public string InvoiceDeliverer { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
-        public string InvoinceAcceptor { get; set; }
+        public string InvoiceAcceptor { get; set; }
         public bool InvoinceStatus { get; set;}
-        public ICollection<InvoinceItem> InvoinceItems { get; set; }
+        public ICollection<InvoiceItem> InvoiceItems { get; set; }
     }
 }

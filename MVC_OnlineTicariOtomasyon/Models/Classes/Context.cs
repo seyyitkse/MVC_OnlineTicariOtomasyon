@@ -14,8 +14,8 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Expense> Expenses { get; set; }
-        public DbSet<Invoince> Invoinces { get; set; }
-        public DbSet<InvoinceItem> InvoinceItems { get; set; }
+        public DbSet<Invoice> Invoinces { get; set; }
+        public DbSet<InvoiceItem> InvoinceItems { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Sales> Sales { get; set; }
     }
