@@ -21,7 +21,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         [StringLength(30)]
         public string ProductBrand { get; set; }
         public short ProductStock { get; set; }
-        public string ProductPurschase { get; set; }
+        public string ProductPurchase { get; set; }
         public string ProductSale { get; set; }
         public bool ProductCritical { get; set; }
         public bool ProductStatus { get; set; }
