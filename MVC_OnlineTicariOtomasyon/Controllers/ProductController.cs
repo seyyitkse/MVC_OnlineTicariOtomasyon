@@ -25,7 +25,6 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         {
             DbProduct.Products.Add(product);
             product.ProductStatus = true;
-            product.Category.CategoryID = 1;
             DbProduct.SaveChanges();
             return RedirectToAction("Index");
         }

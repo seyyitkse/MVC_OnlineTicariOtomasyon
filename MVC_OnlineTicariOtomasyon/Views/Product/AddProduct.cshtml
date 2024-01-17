@@ -20,6 +20,9 @@
     <label>Enter the Product Purchase</label>
     @Html.TextBoxFor(x => x.ProductPurchase, new { @class = "form-control" })
     <br />
+    <label>Enter the Product Category</label>
+    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+    <br />
     <label>Enter the Product Sale</label>
     @Html.TextBoxFor(x => x.ProductSale, new { @class = "form-control" })
     <br />
@@ -29,6 +32,6 @@
 <script>
     $('#btnAdd').click(function ()
     {
-        alert('Adding categories was successful!')
+        alert('Adding product was successful!')
     });
 </script>
