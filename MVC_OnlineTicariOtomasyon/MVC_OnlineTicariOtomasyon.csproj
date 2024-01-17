@@ -129,12 +129,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202401161040517_update_invoice_table_name_corrected.cs" />
     <Compile Include="Migrations\202401161040517_update_invoice_table_name_corrected.designer.cs">
       <DependentUpon>202401161040517_update_invoice_table_name_corrected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401170736256_update_purchase_column_name.cs" />
+    <Compile Include="Migrations\202401170736256_update_purchase_column_name.designer.cs">
+      <DependentUpon>202401170736256_update_purchase_column_name.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
@@ -288,6 +293,7 @@
     <Content Include="Web\src\scss\_variables.scss" />
     <Content Include="Views\Category\AddCategory.cshtml" />
     <Content Include="Views\Category\GetCategory.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,6 +328,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202401161040517_update_invoice_table_name_corrected.resx">
       <DependentUpon>202401161040517_update_invoice_table_name_corrected.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401170736256_update_purchase_column_name.resx">
+      <DependentUpon>202401170736256_update_purchase_column_name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
