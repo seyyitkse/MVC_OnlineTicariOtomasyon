@@ -18,6 +18,13 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         [HttpGet]
         public ActionResult AddProduct()
         {
+            List<SelectListItem> Categories=(from item in DbProduct.Categories.ToList() 
+                                             select new SelectListItem
+                                             {
+                                                 Text=item.CategoryName,
+                                                 Value=item.CategoryID.ToString()
+                                             }).ToList();
+            ViewBag.Categories = Categories;
             return View();
         }
         [HttpPost]

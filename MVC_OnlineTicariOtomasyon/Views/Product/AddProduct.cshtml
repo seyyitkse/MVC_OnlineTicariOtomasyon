@@ -21,7 +21,7 @@
     @Html.TextBoxFor(x => x.ProductPurchase, new { @class = "form-control" })
     <br />
     <label>Enter the Product Category</label>
-    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
+    @Html.DropDownListFor(model=>model.CategoryID, ViewBag.Categories as List<SelectListItem>, new {@class="form-control"})
     <br />
     <label>Enter the Product Sale</label>
     @Html.TextBoxFor(x => x.ProductSale, new { @class = "form-control" })
