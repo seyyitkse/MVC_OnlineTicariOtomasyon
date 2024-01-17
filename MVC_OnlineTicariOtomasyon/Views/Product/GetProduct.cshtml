@@ -1,0 +1,37 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Product
+@{
+    ViewBag.Title = "GetProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Product</h2>
+<br />
+
+@using (Html.BeginForm("UpdateProduct", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ProductID)
+
+        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(x => x.ProductBrand, new { @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(x => x.ProductStock, new { @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(x => x.ProductPurchase, new { @class = "form-control" })
+        <br />
+        @Html.DropDownListFor(model => model.CategoryID, ViewBag.ProductCategory as List<SelectListItem>, new { @class = "form-control" })
+        <br />
+        @Html.TextBoxFor(x => x.ProductSale, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info" id="btnAdd">Add</button>
+    </div>
+}
+<script>
+    $('#btnUpdate').click(function ()
+    {
+        alert('Update category was successful!')
+    });
+</script>
+

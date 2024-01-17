@@ -8,8 +8,21 @@ using System.Web.Mvc;
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
     public class ProductController : Controller
-    {
+    {  
         Context DbProduct=new Context();
+        public List<SelectListItem> Categories
+        {
+            get
+            {
+                return (from item in DbProduct.Categories.ToList()
+                        select new SelectListItem
+                        {
+                            Text = item.CategoryName,
+                            Value = item.CategoryID.ToString()
+                        }).ToList();
+            }
+        }
+
         public ActionResult Index()
         {
             var product=(DbProduct.Products.Where(x=>x.ProductStatus==true)).ToList();
@@ -18,12 +31,6 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         [HttpGet]
         public ActionResult AddProduct()
         {
-            List<SelectListItem> Categories=(from item in DbProduct.Categories.ToList() 
-                                             select new SelectListItem
-                                             {
-                                                 Text=item.CategoryName,
-                                                 Value=item.CategoryID.ToString()
-                                             }).ToList();
             ViewBag.Categories = Categories;
             return View();
         }
@@ -41,6 +48,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             product.ProductStatus=false;
             DbProduct.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult GetProduct(int id) 
+        {
+            ViewBag.ProductCategory = Categories;
+            var product = DbProduct.Products.Find(id);
+            return View("GetProduct",product); 
         }
     }
 }
