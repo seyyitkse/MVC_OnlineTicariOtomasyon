@@ -25,12 +25,13 @@
         <br />
         @Html.TextBoxFor(x => x.ProductSale, new { @class = "form-control" })
         <br />
-        <button class="btn btn-info" id="btnAdd">Add</button>
+        <button class="btn btn-info" id="btnUpdate">Add</button>
     </div>
 }
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 <script>
-    $('#btnUpdate').click(function ()
-    {
+    $('#btnUpdate').click(function () {
         alert('Update category was successful!')
     });
 </script>

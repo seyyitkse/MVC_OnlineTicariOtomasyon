@@ -21,17 +21,17 @@
     @Html.TextBoxFor(x => x.ProductPurchase, new { @class = "form-control" })
     <br />
     <label>Enter the Product Category</label>
-    @Html.DropDownListFor(model=>model.CategoryID, ViewBag.Categories as List<SelectListItem>, new {@class="form-control"})
+    @Html.DropDownListFor(model => model.CategoryID, ViewBag.Categories as List<SelectListItem>, new { @class = "form-control" })
     <br />
     <label>Enter the Product Sale</label>
     @Html.TextBoxFor(x => x.ProductSale, new { @class = "form-control" })
     <br />
     <button class="btn btn-info" id="btnAdd">Add</button>
 </form>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-    $('#btnAdd').click(function ()
-    {
+    $('#btnAdd').click(function () {
         alert('Adding product was successful!')
     });
 </script>

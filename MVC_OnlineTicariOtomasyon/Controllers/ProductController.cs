@@ -55,5 +55,18 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var product = DbProduct.Products.Find(id);
             return View("GetProduct",product); 
         }
+
+        public ActionResult UpdateProduct(Product product)
+        {
+            var updated=DbProduct.Products.Find(product.ProductID);
+            updated.ProductName = product.ProductName;
+            updated.ProductBrand = product.ProductBrand;
+            updated.ProductSale = product.ProductSale;
+            updated.ProductStock = product.ProductStock;
+            updated.ProductPurchase = product.ProductPurchase;
+            updated.CategoryID = product.CategoryID;
+            DbProduct.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
