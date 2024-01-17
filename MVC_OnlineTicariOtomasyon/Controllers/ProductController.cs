@@ -15,5 +15,19 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var product=(DbProduct.Products.Where(x=>x.ProductStatus==true)).ToList();
             return View(product);
         }
+        [HttpGet]
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddProduct(Product product) 
+        {
+            DbProduct.Products.Add(product);
+            product.ProductStatus = true;
+            product.Category.CategoryID = 1;
+            DbProduct.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

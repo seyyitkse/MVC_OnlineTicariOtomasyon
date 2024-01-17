@@ -1,0 +1,34 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Product
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Add New Product</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Enter the Product Name</label>
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    <br />
+    <label>Enter the Product Brand</label>
+    @Html.TextBoxFor(x => x.ProductBrand, new { @class = "form-control" })
+    <br />
+    <label>Enter the Product Stock</label>
+    @Html.TextBoxFor(x => x.ProductStock, new { @class = "form-control" })
+    <br />
+    <label>Enter the Product Purchase</label>
+    @Html.TextBoxFor(x => x.ProductPurchase, new { @class = "form-control" })
+    <br />
+    <label>Enter the Product Sale</label>
+    @Html.TextBoxFor(x => x.ProductSale, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="btnAdd">Add</button>
+</form>
+
+<script>
+    $('#btnAdd').click(function ()
+    {
+        alert('Adding categories was successful!')
+    });
+</script>
