@@ -35,5 +35,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbProduct.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteProduct(int id) 
+        {
+            var product = DbProduct.Products.Find(id);
+            product.ProductStatus=false;
+            DbProduct.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
