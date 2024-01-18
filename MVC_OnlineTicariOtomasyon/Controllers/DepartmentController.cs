@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_OnlineTicariOtomasyon.Models.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,11 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
 {
     public class DepartmentController : Controller
     {
-        // GET: Department
+        Context DbDepartment=new Context();
         public ActionResult Index()
         {
-            return View();
+            var department=(DbDepartment.Departments.Where(x=>x.DepartmentStatus==true)).ToList();
+            return View(department);
         }
     }
 }

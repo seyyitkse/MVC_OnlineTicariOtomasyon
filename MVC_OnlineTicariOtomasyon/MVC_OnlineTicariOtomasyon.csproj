@@ -142,6 +142,10 @@
     <Compile Include="Migrations\202401170736256_update_purchase_column_name.designer.cs">
       <DependentUpon>202401170736256_update_purchase_column_name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202401180605567_update_departmentstatus_data_type.cs" />
+    <Compile Include="Migrations\202401180605567_update_departmentstatus_data_type.designer.cs">
+      <DependentUpon>202401180605567_update_departmentstatus_data_type.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Context.cs" />
@@ -297,10 +301,10 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\AddProduct.cshtml" />
     <Content Include="Views\Product\GetProduct.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Department\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401170736256_update_purchase_column_name.resx">
       <DependentUpon>202401170736256_update_purchase_column_name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401180605567_update_departmentstatus_data_type.resx">
+      <DependentUpon>202401180605567_update_departmentstatus_data_type.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
