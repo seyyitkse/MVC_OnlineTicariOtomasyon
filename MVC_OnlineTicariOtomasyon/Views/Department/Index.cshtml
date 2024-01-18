@@ -21,7 +21,7 @@
             <td>
                 @Html.ActionLink("Delete", "DeleteDepartment", new { id = item.DepartmentID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete ?')" })
                 <a href="/Department/GetDepartment/@item.DepartmentID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
-                <a href="/Category/GetCategory/@item.DepartmentID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
+                <a href="/Department/DepartmentDetails/@item.DepartmentID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
 
             </td>
         </tr>
