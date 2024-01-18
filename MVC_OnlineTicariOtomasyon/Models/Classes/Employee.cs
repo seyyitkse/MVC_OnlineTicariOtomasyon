@@ -28,6 +28,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public bool EmployeeStatus { get; set; }
         public ICollection<Sales> Sales { get; set; }
 
-        public Department Department { get; set; }
+        public int DepartmentID { get; set; }
+        public virtual Department Department { get; set; }
     }
 }
