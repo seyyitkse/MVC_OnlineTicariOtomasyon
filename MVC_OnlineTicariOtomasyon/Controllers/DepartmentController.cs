@@ -37,5 +37,18 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbDepartment.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetDepartment(int id)
+        {
+            var department = DbDepartment.Departments.Find(id);
+            return View("GetDepartment",department);
+        }
+        public ActionResult UpdateDepartment(Department department) 
+        {
+            var updated = DbDepartment.Departments.Find(department.DepartmentID);
+            updated.DepartmentName=department.DepartmentName;
+            DbDepartment.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

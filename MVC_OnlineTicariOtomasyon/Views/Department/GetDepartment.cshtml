@@ -1,0 +1,27 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Department
+@{
+    ViewBag.Title = "GetDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Depatment</h2>
+<br />
+
+@using (Html.BeginForm("UpdateDepartment", "Department", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Department Name:</label>
+        @Html.HiddenFor(x => x.DepartmentID)
+
+        @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-info" id="btnUpdate">Update</button>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $('#btnUpdate').click(function () {
+        alert('Update category was successful!')
+    });
+</script>
