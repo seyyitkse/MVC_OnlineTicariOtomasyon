@@ -15,5 +15,19 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var department=(DbDepartment.Departments.Where(x=>x.DepartmentStatus==true)).ToList();
             return View(department);
         }
+
+        [HttpGet]
+        public ActionResult AddDepartment() 
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddDepartment(Department department)
+        {
+            DbDepartment.Departments.Add(department);
+            department.DepartmentStatus = true;
+            DbDepartment.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
