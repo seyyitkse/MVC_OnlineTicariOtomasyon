@@ -15,7 +15,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string DepartmentName { get; set; }
-        public string DepartmentStatus { get; set; }
+        public bool DepartmentStatus { get; set; }
         public ICollection<Employee> Employees { get; set; }
     }
 }
