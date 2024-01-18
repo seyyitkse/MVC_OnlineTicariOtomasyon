@@ -1,0 +1,36 @@
+﻿@using MVC_OnlineTicariOtomasyon.Models.Classes
+@model List<Sales>
+@{
+    ViewBag.Title = "CustomerDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Customer Details</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">@ViewBag.customerName</li>
+</ol>
+<table class=" table table-hover">
+    <tr>
+        <th>Sales ID</th>
+        <th>Date</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SalesID</td>
+            <td>@item.SalesDate</td>
+            <td>@item.ProductID</td>
+            <td>@item.SalesPrice</td>
+            <td>@item.SalesQuantity</td>
+            <td>@item.SalesTotalPrice</td>
+        </tr>
+
+    }
+</table>
+
