@@ -36,5 +36,28 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbCustomer.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetCustomer(int id) 
+        {
+            var customer= DbCustomer.Customers.Find(id);
+            return View("GetCustomer",customer);
+        }
+        public ActionResult UpdateCustomer(Customer customer)
+        {
+            var updatedCustomer = DbCustomer.Customers.Find(customer.CustomerID);
+            updatedCustomer.CustomerName = customer.CustomerName;
+            updatedCustomer.CustomerSurname= customer.CustomerSurname;
+            updatedCustomer.CustomerCity = customer.CustomerCity;
+            updatedCustomer.CustomerMail=customer.CustomerMail;
+            DbCustomer.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public ActionResult CustomerDetails(int id)
+        {
+            var customer = DbCustomer.Customers.Find(id);
+            ViewBag.customerName = customer.CustomerName + " " + customer.CustomerSurname;
+            var customerSales=(DbCustomer.Sales.Where(x=>x.CustomerID==id)).ToList();
+            return View(customerSales);
+        }
     }
 }

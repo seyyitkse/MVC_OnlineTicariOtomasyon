@@ -1,0 +1,35 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Customer
+@{
+    ViewBag.Title = "GetCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Update Customer</h2>
+<br />
+
+@using (Html.BeginForm("UpdateCustomer", "Customer", FormMethod.Post))
+{
+    <div class="form-group">
+        <label>Customer Name:</label>
+        @Html.HiddenFor(x => x.CustomerID)
+        @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+        <br />
+        <label>Customer Surname:</label>
+        @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+        <br />
+        <label>Customer City:</label>
+        @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+        <br />
+        <label>Customer Mail:</label>
+        @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+        <br />
+    </div>
+    <button class="btn btn-info" id="btnUpdate">Update</button>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $('#btnUpdate').click(function () {
+        alert('Update customer was successful!')
+    });
+</script>
