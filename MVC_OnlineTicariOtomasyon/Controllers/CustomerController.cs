@@ -15,5 +15,18 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var customers = (DbCustomer.Customers.Where(x => x.CustomerStatus == true)).ToList();
             return View(customers);
         }
+        [HttpGet]
+        public ActionResult AddCustomer()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCustomer(Customer customer)
+        {
+            DbCustomer.Customers.Add(customer);
+            customer.CustomerStatus = true;
+            DbCustomer.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
