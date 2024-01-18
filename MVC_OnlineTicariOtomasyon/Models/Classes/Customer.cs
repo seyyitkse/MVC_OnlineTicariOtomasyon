@@ -22,7 +22,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
 
         [Column(TypeName = "Varchar")]
         [StringLength(13)]
-        public string CustomerTown { get; set; }
+        public string CustomerCity { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
