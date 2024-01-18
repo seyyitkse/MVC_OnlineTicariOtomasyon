@@ -57,5 +57,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var employee=(DbDepartment.Employees.Where(x=>x.DepartmentID==id)).ToList();
             return View(employee);
         }
+        public ActionResult DepartmentEmployeeSales(int id)
+        {
+            var employee= DbDepartment.Employees.Find(id);
+            ViewBag.employeeName=employee.EmployeeName+" "+employee.EmployeeSurname;
+            var sales = (DbDepartment.Sales.Where(x => x.EmployeeID == id)).ToList();
+            return View(sales);
+        }
     }
 }

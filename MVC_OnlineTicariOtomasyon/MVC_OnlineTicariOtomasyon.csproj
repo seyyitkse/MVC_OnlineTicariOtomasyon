@@ -305,6 +305,7 @@
     <Content Include="Views\Department\AddDepartment.cshtml" />
     <Content Include="Views\Department\GetDepartment.cshtml" />
     <Content Include="Views\Department\DepartmentDetails.cshtml" />
+    <Content Include="Views\Department\DepartmentEmployeeSales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -15,8 +15,11 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public decimal SalesPrice { get; set; }
         public decimal SalesTotalPrice { get; set; }
 
-        public Product Product { get; set; }
-        public Customer Customer { get; set; }
-        public Employee Employee { get; set; }
+        public int ProductID { get; set; }
+        public virtual Product Product { get; set; }
+        public int CustomerID { get; set; }
+        public virtual Customer Customer { get; set; }
+        public int EmployeeID { get; set; }
+        public virtual Employee Employee { get; set; }
     }
 }
