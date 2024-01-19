@@ -9,7 +9,20 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
 {
     public class EmployeeController : Controller
     {
-        Context DbEmployee = new Context(); 
+        Context DbEmployee = new Context();
+
+        public List<SelectListItem> departments
+        {
+            get
+            {
+                return (from item in DbEmployee.Departments.ToList()
+                        select new SelectListItem
+                        {
+                            Text = item.DepartmentName,
+                            Value = item.DepartmentID.ToString(),
+                        }).ToList();
+            }
+        }
         public ActionResult Index() 
         { 
             var employee = (DbEmployee.Employees.Where(x => x.EmployeeStatus == true)).ToList(); 
@@ -19,12 +32,6 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         [HttpGet]
         public ActionResult AddEmployee()
         {
-            List<SelectListItem> departments=(from item in DbEmployee.Departments.ToList()
-                                              select new SelectListItem
-                                              {
-                                                  Text=item.DepartmentName,
-                                                  Value=item.DepartmentID.ToString(),
-                                              }).ToList();
             ViewBag.departmentsName = departments;
             return View();
         }
@@ -41,6 +48,23 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         {
             var employee = DbEmployee.Employees.Find(id);
             employee.EmployeeStatus=false;
+            DbEmployee.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        
+        public ActionResult GetEmployee(int id)
+        {
+            ViewBag.employeeDepartment = departments;
+            var employee=DbEmployee.Employees.Find(id);
+            return View("GetEmployee",employee);
+        }
+        public ActionResult UpdateEmployee(Employee employee)
+        {
+            var updated = DbEmployee.Employees.Find(employee.EmployeeID);
+            updated.EmployeeName=employee.EmployeeName;
+            updated.EmployeeSurname=employee.EmployeeSurname;
+            updated.DepartmentID=employee.DepartmentID;
+            updated.EmployeeImage=employee.EmployeeImage;
             DbEmployee.SaveChanges();
             return RedirectToAction("Index");
         }
