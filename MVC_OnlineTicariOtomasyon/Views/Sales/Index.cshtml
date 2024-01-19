@@ -1,0 +1,43 @@
+﻿@using MVC_OnlineTicariOtomasyon.Models.Classes
+@model List<Sales>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Sales</h2>
+<br />
+<table class="table table-bordered" style="margin-top:15px">
+    <tr>
+        <th>Sales ID</th>
+        <th>Product </th>
+        <th>Customer </th>
+        <th>Employee </th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total Price</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SalesID</td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+            <td>@item.SalesQuantity</td>
+            <td>@item.SalesPrice</td>
+            <td>@item.SalesTotalPrice</td>
+            <td>@item.SalesDate</td>
+            <td>
+                <a href="/Product/GetProduct/@item.SalesID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
+                <a href="/Department/DepartmentEmployeeSales/@item.SalesID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Product/AddProduct" class="btn btn-success">
+    <i class="fas fa-shopping-bag"></i> Make New Sales</a>
