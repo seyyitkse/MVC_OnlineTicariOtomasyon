@@ -36,5 +36,13 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbEmployee.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult DeleteEmployee(int id) 
+        {
+            var employee = DbEmployee.Employees.Find(id);
+            employee.EmployeeStatus=false;
+            DbEmployee.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

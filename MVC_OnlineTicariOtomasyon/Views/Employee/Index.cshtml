@@ -23,7 +23,7 @@
             <td>@item.Department.DepartmentName</td>
             <td>@item.EmployeeImage</td>
             <td>
-                @Html.ActionLink("Delete", "DeleteCustomer", new { id = item.EmployeeID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete ?')" })
+                @Html.ActionLink("Delete", "DeleteEmployee", new { id = item.EmployeeID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete ?')" })
                 <a href="/Customer/GetCustomer/@item.EmployeeID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
                 <a href="/Department/DepartmentEmployeeSales/@item.EmployeeID" class="btn btn-success"><i class="fas fa-info-circle"></i> Sales</a>
             </td>
