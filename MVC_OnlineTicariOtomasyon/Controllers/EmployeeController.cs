@@ -15,5 +15,26 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var employee = (DbEmployee.Employees.Where(x => x.EmployeeStatus == true)).ToList(); 
             return View(employee); 
         }
+
+        [HttpGet]
+        public ActionResult AddEmployee()
+        {
+            List<SelectListItem> departments=(from item in DbEmployee.Departments.ToList()
+                                              select new SelectListItem
+                                              {
+                                                  Text=item.DepartmentName,
+                                                  Value=item.DepartmentID.ToString(),
+                                              }).ToList();
+            ViewBag.departmentsName = departments;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddEmployee(Employee employee)
+        {
+            DbEmployee.Employees.Add(employee);
+            employee.EmployeeStatus = true;
+            DbEmployee.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

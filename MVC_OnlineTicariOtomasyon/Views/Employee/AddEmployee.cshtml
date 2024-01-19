@@ -1,0 +1,37 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Employee
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<br />
+<h2>Add New Employee</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Enter the Employee Name</label>
+    @Html.TextBoxFor(x =>x.EmployeeName, new { @class = "form-control" })
+    <br />
+    <label>Enter the Employee Surname</label>
+    @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+    <br />
+    <label>Select the Employee Department</label>
+    @Html.DropDownListFor(model=>model.DepartmentID,(List<SelectListItem>)ViewBag.departmentsName , new { @class = "form-control" })
+    <br />
+    <label>Enter the Employee Image URL</label>
+    @Html.TextBoxFor(x => x.EmployeeImage, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="btnAdd">Add</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $('#btnAdd').click(function ()
+    {
+        alert('Adding employee was successful!')
+    });
+</script>
+
+
+
+
