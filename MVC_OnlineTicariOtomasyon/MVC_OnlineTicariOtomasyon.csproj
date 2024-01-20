@@ -161,6 +161,7 @@
     <Compile Include="Models\Classes\InvoiceItem.cs" />
     <Compile Include="Models\Classes\Product.cs" />
     <Compile Include="Models\Classes\Sales.cs" />
+    <Compile Include="Models\Trigger\TriggerAction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

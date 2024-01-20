@@ -1,10 +1,10 @@
-﻿using MVC_OnlineTicariOtomasyon.Models.Classes;
+﻿using Microsoft.SqlServer.Server;
+using MVC_OnlineTicariOtomasyon.Models.Classes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
     public class SalesController : Controller
@@ -67,6 +67,9 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbSales.Sales.Add(sales);
             sales.SalesTotalPrice = sales.SalesPrice * sales.SalesQuantity;
             sales.SalesDate= DateTime.Now;
+            MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction trigger = new MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction();
+
+            trigger.PerformTrigger(sales.ProductID, sales.SalesQuantity);
             DbSales.SaveChanges();
             return RedirectToAction("Index");
         }
