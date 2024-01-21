@@ -98,5 +98,11 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbSales.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult SaleDetails(int id)
+        {
+            ViewBag.SaleID = id;
+            var sale = (DbSales.Sales.Where(x => x.SalesID == id)).ToList();
+            return View(sale);
+        }
     }
 }
