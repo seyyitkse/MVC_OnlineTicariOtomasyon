@@ -73,5 +73,23 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbSales.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult GetSale(int id) 
+        {
+            ViewBag.Employees = employees;
+            ViewBag.Customers = customers;
+            ViewBag.Products = products;
+            var sale=DbSales.Sales.Find(id);
+            return View("GetSale",sale);
+        }
+        public ActionResult UpdateSale(Sales sales) 
+        {
+            var updated = DbSales.Sales.Find(sales.SalesID);
+            updated.SalesPrice = sales.SalesPrice;
+            updated.SalesQuantity = sales.SalesQuantity;
+            updated.SalesTotalPrice = sales.SalesTotalPrice;
+            DbSales.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
