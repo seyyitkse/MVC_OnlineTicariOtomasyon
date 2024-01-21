@@ -4,40 +4,53 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
 <br />
 <h2>Sales</h2>
 <br />
-<table class="table table-bordered" style="margin-top:15px">
-    <tr>
-        <th>Sales ID</th>
-        <th>Product </th>
-        <th>Customer </th>
-        <th>Employee </th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Total Price</th>
-        <th>Date</th>
-        <th>Actions</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table id="tb11" class="table table-bordered" style="margin-top:15px">
+    <thead>
         <tr>
-            <td>@item.SalesID</td>
-            <td>@item.Product.ProductName</td>
-            <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
-            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
-            <td>@item.SalesQuantity</td>
-            <td>@item.SalesPrice</td>
-            <td>@item.SalesTotalPrice</td>
-            <td>@item.SalesDate</td>
-            <td>
-                <a href="/Sales/GetSale/@item.SalesID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
-                <a href="/Sales/SaleDetails/@item.SalesID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
-            </td>
+            <th>Sales ID</th>
+            <th>Product </th>
+            <th>Customer </th>
+            <th>Employee </th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+            <th>Date</th>
+            <th>Actions</th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.SalesID</td>
+                <td>@item.Product.ProductName</td>
+                <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
+                <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+                <td>@item.SalesQuantity</td>
+                <td>@item.SalesPrice</td>
+                <td>@item.SalesTotalPrice</td>
+                <td>@item.SalesDate</td>
+                <td>
+                    <a href="/Sales/GetSale/@item.SalesID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
+                    <a href="/Sales/SaleDetails/@item.SalesID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
 <a href="/Sales/NewSale" class="btn btn-success">
-    <i class="fas fa-shopping-bag"></i> Make New Sale</a>
+    <i class="fas fa-shopping-bag"></i> Make New Sale
+</a>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

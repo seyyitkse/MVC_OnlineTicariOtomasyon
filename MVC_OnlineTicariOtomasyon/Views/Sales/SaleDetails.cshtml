@@ -24,23 +24,25 @@
             <th>Actions</th>
         </tr>
     </thead>
-    @foreach (var item in Model)
-    {
+    <tbody>
 
-        <tr>
-            <td>@item.SalesID</td>
-            <td>@item.SalesDate</td>
-            <td>@item.Customer.CustomerName</td>
-            <td>@item.Product.ProductName</td>
-            <td>@item.SalesPrice</td>
-            <td>@item.SalesQuantity</td>
-            <td>@item.SalesTotalPrice</td>
-            <td>
-                <a href="/Department/DepartmentDetails/@item.SalesID" class="btn btn-success"><i class="fas fa-print"></i> Print</a>
-            </td>
-        </tr>
+        @foreach (var item in Model)
+        {
 
-    }
+            <tr>
+                <td>@item.SalesID</td>
+                <td>@item.SalesDate</td>
+                <td>@item.Customer.CustomerName</td>
+                <td>@item.Product.ProductName</td>
+                <td>@item.SalesPrice</td>
+                <td>@item.SalesQuantity</td>
+                <td>@item.SalesTotalPrice</td>
+                <td>
+                    <a href="/Sales/PrintSale/@item.SalesID" class="btn btn-success"><i class="fas fa-print"></i> Print</a>
+                </td>
+            </tr>
+        }
+        </tbody>
 </table>
 <a href="/Sales/Index/" class="btn btn-success"><i class="fas fa-arrow-left"></i> Back to Sales Page</a>
 

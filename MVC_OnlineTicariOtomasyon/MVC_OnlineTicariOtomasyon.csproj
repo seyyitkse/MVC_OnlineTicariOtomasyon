@@ -557,6 +557,7 @@
     <Content Include="Views\Sales\NewSale.cshtml" />
     <Content Include="Views\Sales\GetSale.cshtml" />
     <Content Include="Views\Sales\SaleDetails.cshtml" />
+    <Content Include="Views\Sales\PrintSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

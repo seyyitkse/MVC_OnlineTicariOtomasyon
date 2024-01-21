@@ -104,5 +104,10 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var sale = (DbSales.Sales.Where(x => x.SalesID == id)).ToList();
             return View(sale);
         }
+        public ActionResult PrintSale(int id) 
+        {
+            var sale = (DbSales.Sales.Where(x => x.SalesID == id)).ToList();
+            return View(sale);
+        }
     }
 }
