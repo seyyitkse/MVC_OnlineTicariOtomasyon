@@ -85,9 +85,16 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         public ActionResult UpdateSale(Sales sales) 
         {
             var updated = DbSales.Sales.Find(sales.SalesID);
+            updated.CustomerID= sales.CustomerID;
+            updated.EmployeeID=sales.EmployeeID;
+            updated.ProductID=sales.ProductID;
             updated.SalesPrice = sales.SalesPrice;
             updated.SalesQuantity = sales.SalesQuantity;
-            updated.SalesTotalPrice = sales.SalesTotalPrice;
+            updated.SalesTotalPrice = sales.SalesPrice * sales.SalesQuantity;
+            updated.SalesDate = DateTime.Now;
+            MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction trigger = new MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction();
+
+            trigger.PerformTrigger(sales.ProductID, sales.SalesQuantity);
             DbSales.SaveChanges();
             return RedirectToAction("Index");
         }
