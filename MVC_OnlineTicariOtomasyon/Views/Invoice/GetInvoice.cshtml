@@ -1,0 +1,37 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Invoice
+@{
+    ViewBag.Title = "GetInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Update Invoice</h2>
+<br />
+
+@using (Html.BeginForm("UpdateInvoice", "Invoice", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.InvoiceID)
+
+        <label>Select the Employee</label>
+        @Html.DropDownListFor(model => model.EmployeeID, (List<SelectListItem>)ViewBag.Employees, new { @class = "form-control" })
+        <br />
+        <label>Select the Customer</label>
+        @Html.DropDownListFor(model => model.CustomerID, (List<SelectListItem>)ViewBag.Customers, new { @class = "form-control" })
+        <br />
+        <label>Enter the Invoice Sequence</label>
+        @Html.TextBoxFor(x => x.InvoiceSequence, new { @class = "form-control" })
+        <br />
+        <label>Enter the Tax Office</label>
+        @Html.TextBoxFor(x => x.InvoiceTax, new { @class = "form-control" })
+        <br />
+    </div>
+    <button class="btn btn-info" id="btnUpdate">Update</button>
+}
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $('#btnUpdate').click(function () {
+        alert('Update invoice was successful!')
+    });
+</script>

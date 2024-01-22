@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,7 +10,7 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
 {
     public class InvoiceController : Controller
     {
-        Context DbInvoice=new Context();
+        Context DbInvoice = new Context();
         public List<SelectListItem> employees
         {
             get
@@ -37,7 +38,7 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
 
         public ActionResult Index()
         {
-            var invoices=(DbInvoice.Invoinces.Where(x=>x.InvoinceStatus==true)).ToList();
+            var invoices = (DbInvoice.Invoinces.Where(x => x.InvoinceStatus == true)).ToList();
             return View(invoices);
         }
         [HttpGet]
@@ -53,7 +54,7 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbInvoice.Invoinces.Add(invoice);
             invoice.InvoinceStatus = true;
             invoice.InvoiceSerial = "A";
-            invoice.InvoinceDate= DateTime.Now;
+            invoice.InvoinceDate = DateTime.Now;
             invoice.InvoiceClock = DateTime.Now;
             DbInvoice.SaveChanges();
             return RedirectToAction("Index");
@@ -62,8 +63,28 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         public ActionResult InvoiceItemDetails(int id)
         {
             ViewBag.Invoice = id;
-            var invoice = DbInvoice.InvoinceItems.Where(x=>x.InvoiceID==id).ToList();        
+            var invoice = DbInvoice.InvoinceItems.Where(x => x.InvoiceID == id).ToList();
             return View(invoice);
+        }
+        public ActionResult GetInvoice(int id)
+        {
+            ViewBag.Employees = employees;
+            ViewBag.Customers = customers;
+            var invoice = DbInvoice.Invoinces.Find(id);
+            return View("GetInvoice",invoice);
+        }
+        public ActionResult UpdateInvoice(Invoice invoices)
+        {
+            var updated = DbInvoice.Invoinces.Find(invoices.InvoiceID);
+            updated.InvoiceSerial = "A";
+            updated.InvoiceSequence = invoices.InvoiceSequence;
+            updated.InvoiceClock = DateTime.Now;
+            updated.InvoinceDate = DateTime.Now;
+            updated.InvoiceTax = invoices.InvoiceTax;
+            updated.CustomerID = invoices.CustomerID;
+            updated.EmployeeID = invoices.EmployeeID;
+            DbInvoice.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

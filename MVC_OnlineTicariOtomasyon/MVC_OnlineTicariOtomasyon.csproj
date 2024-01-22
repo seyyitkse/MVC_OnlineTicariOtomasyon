@@ -566,6 +566,7 @@
     <Content Include="Views\Invoice\Index.cshtml" />
     <Content Include="Views\Invoice\AddInvoice.cshtml" />
     <Content Include="Views\Invoice\InvoiceItemDetails.cshtml" />
+    <Content Include="Views\Invoice\GetInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
