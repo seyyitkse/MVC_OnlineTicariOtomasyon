@@ -19,6 +19,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public decimal InvoiceItemUnitPrice { get; set; }
         public decimal InvoiceItemAmount { get; set; }
         public bool InvoiceItemStatus { get; set; }
-        public Invoice Invoice { get; set; }
+        public int InvoiceID { get; set; }
+        public virtual Invoice Invoice { get; set; }
     }
 }
