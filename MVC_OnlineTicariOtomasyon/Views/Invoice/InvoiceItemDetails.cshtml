@@ -14,8 +14,6 @@
 <table class=" table table-hover">
     <tr>
         <th>Invoice Item Description</th>
-        <th>Customer</th>
-        <th>Employee</th>
         <th>Item Piece</th>
         <th>Unit Price</th>
         <th>Total Price</th>
@@ -25,8 +23,6 @@
         <tr>
             <td>@item.InvoiceItemDescription</td>
             <td>@item.InvoiceItemPiece</td>
-            <td>@item.Invoice.CustomerID</td>
-            <td>@item.Invoice.EmployeeID</td>
             <td>@item.InvoiceItemPiece</td>
             <td>@item.InvoiceItemUnitPrice</td>
             <td>@item.InvoiceItemAmount</td>
@@ -34,5 +30,6 @@
 
     }
 </table>
+<a href="/Invoice/AddInvoiceItem/" class="btn btn-success">New Invoice Item</a>
 <a href="/Invoice/Index/" class="btn btn-success"><i class="fas fa-arrow-left"></i> Back to Invoice Page</a>
 

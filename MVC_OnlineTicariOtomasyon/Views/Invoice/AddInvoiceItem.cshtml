@@ -1,0 +1,34 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.InvoiceItem
+@{
+    ViewBag.Title = "AddInvoiceItem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Invoice Item Page</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Enter the Invoice ID</label>
+    @Html.TextBoxFor(x => x.InvoiceID, new { @class = "form-control" })
+    <br />    <label>Enter the Item Pieces</label>
+    @Html.TextBoxFor(x => x.InvoiceItemPiece, new { @class = "form-control" })
+    <br />
+    <label>Enter the Unit Price</label>
+    @Html.TextBoxFor(x => x.InvoiceItemUnitPrice, new { @class = "form-control" })
+    <br />
+    <label>Enter the Item Description</label>
+    @Html.TextBoxFor(x => x.InvoiceItemDescription, new { @class = "form-control" })
+    <br />
+    <label>Enter the Total Price</label>
+    @Html.TextBoxFor(x => x.InvoiceItemAmount, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="btnAdd">Create Invoice İtem</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $('#btnAdd').click(function ()
+    {
+        alert('Creating an invoice item is a success!')
+    });
+</script>

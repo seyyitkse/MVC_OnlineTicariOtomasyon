@@ -86,5 +86,17 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbInvoice.SaveChanges();
             return RedirectToAction("Index");
         }
+        [HttpGet]
+        public ActionResult AddInvoiceItem() 
+        { 
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddInvoiceItem(InvoiceItem invoiceitem)
+        {
+            DbInvoice.InvoinceItems.Add(invoiceitem);
+            DbInvoice.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
