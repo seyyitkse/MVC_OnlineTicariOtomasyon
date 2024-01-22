@@ -1,0 +1,32 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Invoice
+@{
+    ViewBag.Title = "AddInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>New Invoice Page</h2>
+<br />
+<form class="form-group" method="post">
+    <label>Select the Employee</label>
+    @Html.DropDownListFor(model => model.EmployeeID, (List<SelectListItem>)ViewBag.Employees, new { @class = "form-control" })
+    <br />
+    <label>Select the Customer</label>
+    @Html.DropDownListFor(model => model.CustomerID, (List<SelectListItem>)ViewBag.Customers, new { @class = "form-control" })
+    <br />
+    <label>Enter the Invoice Sequence</label>
+    @Html.TextBoxFor(x => x.InvoiceSequence, new { @class = "form-control" })
+    <br />
+    <label>Enter the Tax Office</label>
+    @Html.TextBoxFor(x => x.InvoiceTax, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" id="btnAdd">Create Invoice</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $('#btnAdd').click(function ()
+    {
+        alert('Creating an invoice is a success!')
+    });
+</script>

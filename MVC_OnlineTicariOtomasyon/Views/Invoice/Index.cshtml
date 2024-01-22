@@ -24,7 +24,7 @@
             <tr>
                 <td>@item.InvoiceID</td>
                 <td>@item.InvoiceSerial</td>
-                <td>@item.InvoinceDate @item.InvoiceClock</td>
+                <td>@item.InvoinceDate</td>
                 <td>@item.InvoiceTax</td>
                 <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
                 <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
@@ -35,7 +35,7 @@
             </tr>
         }
 </table>
-<a href="/Sales/NewSale" class="btn btn-success">
-    <i class="fas fa-shopping-bag"></i> Add New Invoice
+<a href="/Invoice/AddInvoice" class="btn btn-success">
+    <i class="fas fa-barcode"></i> Add New Invoice
 </a>
 
