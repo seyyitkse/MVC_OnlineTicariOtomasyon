@@ -58,5 +58,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbInvoice.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult InvoiceItemDetails(int id)
+        {
+            ViewBag.Invoice = id;
+            var invoice = DbInvoice.InvoinceItems.Where(x=>x.InvoiceID==id).ToList();        
+            return View(invoice);
+        }
     }
 }

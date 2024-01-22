@@ -1,0 +1,38 @@
+﻿@using MVC_OnlineTicariOtomasyon.Models.Classes
+@model List<InvoiceItem>
+@{
+    ViewBag.Title = "InvoiceItemDetails";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Invoice Details</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">@ViewBag.Invoice</li>
+</ol>
+<table class=" table table-hover">
+    <tr>
+        <th>Invoice Item Description</th>
+        <th>Customer</th>
+        <th>Employee</th>
+        <th>Item Piece</th>
+        <th>Unit Price</th>
+        <th>Total Price</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.InvoiceItemDescription</td>
+            <td>@item.InvoiceItemPiece</td>
+            <td>@item.Invoice.CustomerID</td>
+            <td>@item.Invoice.EmployeeID</td>
+            <td>@item.InvoiceItemPiece</td>
+            <td>@item.InvoiceItemUnitPrice</td>
+            <td>@item.InvoiceItemAmount</td>
+        </tr>
+
+    }
+</table>
+<a href="/Invoice/Index/" class="btn btn-success"><i class="fas fa-arrow-left"></i> Back to Invoice Page</a>
+
