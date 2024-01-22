@@ -27,8 +27,8 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public string EmployeeImage { get; set; }
         public bool EmployeeStatus { get; set; }
         public ICollection<Sales> Sales { get; set; }
-
         public int DepartmentID { get; set; }
         public virtual Department Department { get; set; }
+        public ICollection<Invoice> Invoices { get; set; }
     }
 }

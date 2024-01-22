@@ -1,0 +1,41 @@
+﻿@using MVC_OnlineTicariOtomasyon.Models.Classes
+@model List<Invoice>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Invoices</h2>
+<br />
+<table  class="table table-bordered" style="margin-top:15px">
+ 
+        <tr>
+            <th>Invoice ID</th>
+            <th>Serial Number </th>
+            <th>Date-Clock </th>
+            <th>Tax Office</th>
+            <th>Deliverer</th>
+            <th>Acceptor</th>
+            <th>Actions</th>
+        </tr>
+  
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.InvoiceID</td>
+                <td>@item.InvoiceSerial</td>
+                <td>@item.InvoinceDate @item.InvoiceClock</td>
+                <td>@item.InvoiceTax</td>
+                <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+                <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
+                <td>
+                    <a href="/Sales/GetSale/@item.InvoiceID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
+                    <a href="/Sales/SaleDetails/@item.InvoiceID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
+                </td>
+            </tr>
+        }
+</table>
+<a href="/Sales/NewSale" class="btn btn-success">
+    <i class="fas fa-shopping-bag"></i> Add New Invoice
+</a>
+

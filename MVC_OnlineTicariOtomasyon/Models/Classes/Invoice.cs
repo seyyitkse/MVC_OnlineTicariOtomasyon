@@ -26,15 +26,11 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         [StringLength(60)]
         public string InvoiceTax { get; set; }
         public DateTime InvoiceClock { get; set; }
-
-        [Column(TypeName = "Varchar")]
-        [StringLength(30)]
-        public string InvoiceDeliverer { get; set; }
-
-        [Column(TypeName = "Varchar")]
-        [StringLength(30)]
-        public string InvoiceAcceptor { get; set; }
         public bool InvoinceStatus { get; set;}
+        public int CustomerID { get; set; }
+        public virtual Customer Customer { get; set; }
+        public int EmployeeID { get; set; }
+        public virtual Employee Employee { get; set; }
         public ICollection<InvoiceItem> InvoiceItems { get; set; }
     }
 }

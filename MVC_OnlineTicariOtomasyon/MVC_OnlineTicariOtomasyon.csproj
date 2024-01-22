@@ -132,6 +132,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -148,6 +149,10 @@
     <Compile Include="Migrations\202401180605567_update_departmentstatus_data_type.cs" />
     <Compile Include="Migrations\202401180605567_update_departmentstatus_data_type.designer.cs">
       <DependentUpon>202401180605567_update_departmentstatus_data_type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202401220707479_update_deliverer_column_name.cs" />
+    <Compile Include="Migrations\202401220707479_update_deliverer_column_name.designer.cs">
+      <DependentUpon>202401220707479_update_deliverer_column_name.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
@@ -558,6 +563,7 @@
     <Content Include="Views\Sales\GetSale.cshtml" />
     <Content Include="Views\Sales\SaleDetails.cshtml" />
     <Content Include="Views\Sales\PrintSale.cshtml" />
+    <Content Include="Views\Invoice\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -598,6 +604,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401180605567_update_departmentstatus_data_type.resx">
       <DependentUpon>202401180605567_update_departmentstatus_data_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401220707479_update_deliverer_column_name.resx">
+      <DependentUpon>202401220707479_update_deliverer_column_name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -9,9 +9,11 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
 {
     public class InvoiceController : Controller
     {
-        public ActionResult Index() 
+        Context DbInvoice=new Context();
+        public ActionResult Index()
         {
-            return View();
+            var invoices=(DbInvoice.Invoinces.Where(x=>x.InvoinceStatus==true)).ToList();
+            return View(invoices);
         }
     }
 }
