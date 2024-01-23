@@ -64,6 +64,7 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             updated.ProductSale = product.ProductSale;
             updated.ProductStock = product.ProductStock;
             updated.ProductPurchase = product.ProductPurchase;
+            updated.ProductImage = product.ProductImage;
             updated.CategoryID = product.CategoryID;
             DbProduct.SaveChanges();
             return RedirectToAction("Index");
