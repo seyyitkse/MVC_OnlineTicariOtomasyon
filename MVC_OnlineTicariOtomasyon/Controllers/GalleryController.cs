@@ -12,7 +12,8 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         Context DbGallery = new Context();
         public ActionResult Index()
         {
-            return View();
+            var productImage = (DbGallery.Products.Where(x => x.ProductStatus == true)).ToList();
+            return View(productImage);
         }
     }
 }
