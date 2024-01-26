@@ -65,8 +65,15 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             return View();
         }
         public ActionResult SimpleTables() 
-        { 
-            return View(); 
+        {
+            var table = from x in DbStatistic.Customers
+                        group x by x.CustomerCity into query
+                        select new GroupCustomer
+                        {
+                            Town = query.Key,
+                            CustomerNumber = query.Count()
+                        };
+            return View(table.ToList()); 
         }
     }
 }
