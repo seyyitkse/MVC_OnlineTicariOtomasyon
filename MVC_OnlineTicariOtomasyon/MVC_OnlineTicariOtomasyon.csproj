@@ -2884,6 +2884,7 @@
     <Content Include="thumber\scss\_site-blocks.scss" />
     <Content Include="thumber\scss\_site-navbar.scss" />
     <Content Include="Views\Product\ProductDetails.cshtml" />
+    <Content Include="Views\Statistics\SimpleTables.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

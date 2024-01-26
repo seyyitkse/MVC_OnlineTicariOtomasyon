@@ -64,5 +64,9 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
 
             return View();
         }
+        public ActionResult SimpleTables() 
+        { 
+            return View(); 
+        }
     }
 }
