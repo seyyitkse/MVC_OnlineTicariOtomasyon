@@ -1,6 +1,7 @@
-﻿@{
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Product_ProductDetail
+@{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
@@ -37,14 +38,14 @@
         <section class="content">
             <!-- Default box -->
             <div class="card card-solid">
-                @foreach (var x in Model.Deger1)
+                @foreach (var x in Model.Products)
                 {
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12 col-sm-6">
                                 <h3 class="d-inline-block d-sm-none">LOWA Men’s Renegade GTX Mid Hiking Boots Review</h3>
                                 <div class="col-12">
-                                    <img src="@x.UrunGorsel" class="product-image" alt="Product Image">
+                                    <img src="@x.ProductImage" class="product-image" alt="Product Image">
                                 </div>
                                 <div class="col-12 product-image-thumbs">
                                     <div class="product-image-thumb active"><img src="~/AdminLTE-3.0.4/dist/img/prod-1.jpg" alt="Product Image"></div>
@@ -55,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <h3 class="my-3">@x.UrunAd</h3>
+                                <h3 class="my-3">@x.ProductName</h3>
                                 <p>2020 yılı itibarıyla aldığı ödüller ve müşteri memnuniyet oranı oldukça yüksek olan buzdolabımızın fiyat performans karşılaştırması da gayet tatmin edici düzeyde olup doğa dostu ve A++ enerji birimlidir.</p>
                                 <hr>
                                 <h4>Renk Seçimi</h4>
@@ -120,16 +121,16 @@
                                 </div>
                                 <div class="bg-gray py-2 px-3 mt-4">
                                     <h2 class="mb-0">
-                                        ₺@x.SatisFiyat
+                                        @x.ProductSale
                                     </h2>
                                     <h4 class="mt-0">
-                                        <small>Alış Fiyat: ₺@x.AlisFiyat </small>
+                                        <small>Alış Fiyat: @x.ProductPurchase </small>
                                     </h4>
                                 </div>
                                 <div class="mt-4">
                                     <div class="btn btn-primary btn-lg btn-flat">
                                         <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                                        Satış Listesi
+                                        Sales
                                     </div>
                                     <div class="btn btn-default btn-lg btn-flat">
                                         <i class="fas fa-heart fa-lg mr-2"></i>
@@ -161,9 +162,9 @@
                                 </div>
                             </nav>
                             <div class="tab-content p-3" id="nav-tabContent">
-                                @foreach (var y in Model.Deger2)
+                                @foreach (var y in Model.ProductDetails)
                                 {
-                                    <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> @y.urunad - @y.urunbilgi </div>
+                                    <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> @y.ProductDescription - @y.Product.ProductName </div>
                                     <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab"> Vivamus rhoncus nisl sed venenatis luctus. Sed condimentum risus ut tortor feugiat laoreet. Suspendisse potenti. Donec et finibus sem, ut commodo lectus. Cras eget neque dignissim, placerat orci interdum, venenatis odio. Nulla turpis elit, consequat eu eros ac, consectetur fringilla urna. Duis gravida ex pulvinar mauris ornare, eget porttitor enim vulputate. Mauris hendrerit, massa nec aliquam cursus, ex elit euismod lorem, vehicula rhoncus nisl dui sit amet eros. Nulla turpis lorem, dignissim a sapien eget, ultrices venenatis dolor. Curabitur vel turpis at magna elementum hendrerit vel id dui. Curabitur a ex ullamcorper, ornare velit vel, tincidunt ipsum. </div>
                                     <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at, consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula placerat. </div>
                                 }

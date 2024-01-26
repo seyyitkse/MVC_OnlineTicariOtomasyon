@@ -32,5 +32,6 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
         public ICollection<Sales> Sales { get; set; }
+        public ICollection<ProductDetail> ProductDetails { get; set; }
     }
 }

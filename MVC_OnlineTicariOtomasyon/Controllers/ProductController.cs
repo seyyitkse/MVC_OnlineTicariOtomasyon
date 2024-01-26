@@ -69,5 +69,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbProduct.SaveChanges();
             return RedirectToAction("Index");
         }
+        Product_ProductDetail newDetails= new Product_ProductDetail();
+        public ActionResult ProductDetails()
+        {
+            newDetails.Products = DbProduct.Products.ToList();
+            newDetails.ProductDetails= DbProduct.Details.ToList();
+            return View(newDetails);
+        }
     }
 }
