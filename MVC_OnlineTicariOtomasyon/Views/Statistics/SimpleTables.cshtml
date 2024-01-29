@@ -58,10 +58,11 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @{int number = 0; }
                                             @foreach (var item in Model)
                                             {
                                             <tr>
-                                                <td>1.</td>
+                                                <td>@{number++;} @number</td>
                                                 <td>@item.Town</td>
                                                 <td>
                                                     <div class="progress progress-xs">
