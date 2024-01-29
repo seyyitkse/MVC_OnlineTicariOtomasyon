@@ -29,6 +29,5 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public string CustomerMail { get; set; }
         public bool CustomerStatus { get; set; }
         public ICollection<Sales> Sales { get; set; }
-        public ICollection<Customer> Customers { get; set; }
     }
 }

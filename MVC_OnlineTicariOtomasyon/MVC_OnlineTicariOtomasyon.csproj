@@ -163,7 +163,9 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\Context.cs" />
+    <Compile Include="Models\Classes\GroupBrand.cs" />
     <Compile Include="Models\Classes\GroupCustomer.cs" />
+    <Compile Include="Models\Classes\GroupEmployee.cs" />
     <Compile Include="Models\Classes\Product-ProductDetail.cs" />
     <Compile Include="Models\Classes\ProductDetail.cs" />
     <Compile Include="Models\Classes\Expense.cs" />
@@ -2886,6 +2888,10 @@
     <Content Include="thumber\scss\_site-navbar.scss" />
     <Content Include="Views\Product\ProductDetails.cshtml" />
     <Content Include="Views\Statistics\SimpleTables.cshtml" />
+    <Content Include="Views\Statistics\Partial1.cshtml" />
+    <Content Include="Views\Statistics\Partial2.cshtml" />
+    <Content Include="Views\Statistics\Partial3.cshtml" />
+    <Content Include="Views\Statistics\Partial4.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

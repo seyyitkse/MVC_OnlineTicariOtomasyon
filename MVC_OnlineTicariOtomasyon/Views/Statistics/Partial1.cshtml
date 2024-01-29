@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVC_OnlineTicariOtomasyon.Models.Classes.GroupEmployee>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Department Table</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Task</th>
+                    <th>Progress</th>
+                    <th style="width: 40px">Label</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{int queue = 0; }
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@{queue++;} @queue</td>
+                        <td>@item.DepartmentName</td>
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-warning" style="width: 70%"></div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-warning">@item.Number</span></td>
+                    </tr>
+                } 
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
