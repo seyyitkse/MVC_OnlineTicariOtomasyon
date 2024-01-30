@@ -68,5 +68,10 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbEmployee.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult EmployeeList()
+        {
+            var employees=DbEmployee.Employees.Where(x=>x.EmployeeStatus==true).ToList();   
+            return View(employees);
+        }
     }
 }
