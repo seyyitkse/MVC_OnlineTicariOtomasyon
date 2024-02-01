@@ -21,7 +21,7 @@
             <td>@item.EmployeeID</td>
             <td>@item.EmployeeName @item.EmployeeSurname</td>
             <td>@item.Department.DepartmentName</td>
-            <td>@item.EmployeeImage</td>
+            <td><img src="@item.EmployeeImage" style="width:128px; height:128px"/></td>
             <td>
                 @Html.ActionLink("Delete", "DeleteEmployee", new { id = item.EmployeeID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete ?')" })
                 <a href="/Employee/GetEmployee/@item.EmployeeID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
