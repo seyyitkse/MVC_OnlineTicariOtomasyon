@@ -12,6 +12,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         [Key]
         public int EmployeeID { get; set; }
 
+        [Display(Name ="Employee Name")]
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string EmployeeName { get; set; }

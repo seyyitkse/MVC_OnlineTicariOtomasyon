@@ -9,7 +9,7 @@
 <h2>Add New Employee</h2>
 <br />
 <form class="form-group" method="post">
-    <label>Enter the Employee Name</label>
+   @Html.LabelFor(x=>x.EmployeeName)
     @Html.TextBoxFor(x =>x.EmployeeName, new { @class = "form-control" })
     <br />
     <label>Enter the Employee Surname</label>
