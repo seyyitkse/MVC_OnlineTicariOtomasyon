@@ -1,8 +1,24 @@
-﻿
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Customer
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
-
-<h2>Index</h2>
-
+<h2>Customer Info Panel </h2>
+@using (Html.BeginForm("UpdateInfo", "CustomerPanel"))
+{
+    <table class="table">
+        <tr><td><label>Mail address: @HttpContext.Current.User.Identity.Name</label></td></tr>
+        @Html.HiddenFor(x => x.CustomerID)
+        <tr><td>@Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })</td></tr>
+        <tr><td>@Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })</td></tr>
+        <tr><td>@Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })</td></tr>
+        <tr><td>@Html.TextBoxFor(x => x.CustomerPassword, new { @class = "form-control" })</td></tr>
+    </table>
+    <button class="btn btn-danger" id="btnUpdate">Update Info</button>
+}
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $('#btnUpdate').click(function () {
+        alert('Update customer was successful!')
+    });
+</script>

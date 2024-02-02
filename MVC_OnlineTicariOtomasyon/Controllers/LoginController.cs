@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
     public class LoginController : Controller
     {
-        // GET: Login
         Context DbLogin=new Context();
         public ActionResult Index()
         {
@@ -28,6 +28,26 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             newCustomer.CustomerStatus = true;
             DbLogin.SaveChanges();
             return PartialView();
+        }
+        [HttpGet]
+        public ActionResult CustomerLogin()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CustomerLogin(Customer customer)
+        {
+            var info = DbLogin.Customers.FirstOrDefault(x => x.CustomerMail == customer.CustomerMail && x.CustomerPassword == customer.CustomerPassword);
+            if (info != null) 
+            {
+                FormsAuthentication.SetAuthCookie(info.CustomerMail, false);
+                Session["CustomerMail"] = info.CustomerMail.ToString();
+                return RedirectToAction("Index", "CustomerPanel");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
         }
     }
 }
