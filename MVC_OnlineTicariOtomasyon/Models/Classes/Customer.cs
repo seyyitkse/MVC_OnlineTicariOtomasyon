@@ -27,6 +27,9 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CustomerMail { get; set; }
+        [Column(TypeName = "Varchar")]
+        [StringLength(20)]
+        public string CustomerPassword { get; set; }
         public bool CustomerStatus { get; set; }
         public ICollection<Sales> Sales { get; set; }
     }
