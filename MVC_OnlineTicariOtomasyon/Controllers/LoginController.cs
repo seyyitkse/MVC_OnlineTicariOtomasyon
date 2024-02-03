@@ -49,5 +49,25 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
                 return RedirectToAction("Index", "Login");
             }
         }
+        [HttpGet]
+        public ActionResult AdminLogin() 
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AdminLogin(Admin admin)
+        {
+            var admin1=DbLogin.Admins.FirstOrDefault(x=>x.AdminUsername==admin.AdminUsername && x.AdminPassword==admin.AdminPassword);
+            if (admin1 != null)
+            {
+                FormsAuthentication.SetAuthCookie(admin1.AdminUsername, false);
+                Session["AdminUsername"]= admin1.AdminUsername.ToString();
+                return RedirectToAction("Index", "AdminPanel");
+            }
+            else
+            {
+                return RedirectToAction("Index","Login");
+            }
+        }
     }
 }
