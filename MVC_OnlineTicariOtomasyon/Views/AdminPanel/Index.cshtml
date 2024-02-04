@@ -4,13 +4,12 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Customer Info Panel </h2>
+<h2>Admin Update Panel </h2>
 @using (Html.BeginForm("UpdateInfo", "AdminPanel"))
 {
     <table class="table">
         <tr><td><label>User: @HttpContext.Current.User.Identity.Name</label></td></tr>
         @Html.HiddenFor(x => x.AdminID)
-        <tr><td>@Html.TextBoxFor(x => x.AdminUsername, new { @class = "form-control" })</td></tr>
         <tr><td>@Html.TextBoxFor(x => x.AdminPassword, new { @class = "form-control" })</td></tr>
     </table>
     <button class="btn btn-danger" id="btnUpdate">Update Info</button>

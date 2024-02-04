@@ -19,5 +19,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             ViewBag.CustomerMail = user;
             return View(values);
         }
+        public ActionResult UpdateInfo(Admin admin)
+        {
+            var updatedAdmin = DbAdmin.Admins.Find(admin.AdminID);
+            updatedAdmin.AdminPassword = admin.AdminPassword;
+            DbAdmin.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
