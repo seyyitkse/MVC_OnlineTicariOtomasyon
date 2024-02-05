@@ -13,7 +13,6 @@
 </ol>
 <table class=" table table-hover">
     <tr>
-        <th>Sales ID</th>
         <th>Date</th>
         <th>Customer</th>
         <th>Product</th>
@@ -24,11 +23,10 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.SalesID</td>
             <td>@item.SalesDate</td>
-            <td>@item.Customer.CustomerName</td>
+            <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
             <td>@item.Product.ProductName</td>
-            <td>@item.SalesPrice</td>
+            <td>@item.SalesPrice $</td>
             <td>@item.SalesQuantity</td>
             <td>@item.SalesTotalPrice</td>
         </tr>

@@ -8,7 +8,6 @@
 <h2>Departments</h2>
 <table class="table table-bordered" style="margin-top:15px ">
     <tr>
-        <th>Department ID</th>
         <th>Department Name</th>
         <th>Actions</th>
     </tr>
@@ -16,7 +15,6 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.DepartmentID</td>
             <td>@item.DepartmentName</td>
             <td>
                 @Html.ActionLink("Delete", "DeleteDepartment", new { id = item.DepartmentID }, new { @class = "btn btn-danger", onclick = "return confirm('Do you really want to delete ?')" })
