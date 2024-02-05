@@ -23,10 +23,15 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             }
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            var product=(DbProduct.Products.Where(x=>x.ProductStatus==true)).ToList();
-            return View(product);
+            //var product=(DbProduct.Products.Where(x=>x.ProductStatus==true)).ToList();
+            var product = from x in DbProduct.Products select x;
+            if (!string.IsNullOrEmpty(search))
+            {
+                product=product.Where(y=>y.ProductName.Contains(search));
+            }
+            return View(product.ToList());
         }
         [HttpGet]
         public ActionResult AddProduct()
