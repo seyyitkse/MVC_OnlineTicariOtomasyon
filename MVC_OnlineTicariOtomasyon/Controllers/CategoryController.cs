@@ -1,4 +1,6 @@
 ﻿using MVC_OnlineTicariOtomasyon.Models.Classes;
+using PagedList;
+using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,9 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
     public class CategoryController : Controller
     { 
         Context DbCategories=new Context();
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var category=(DbCategories.Categories.Where(x=>x.CategoryStatus==true)).ToList();
+            var category=(DbCategories.Categories.Where(x=>x.CategoryStatus==true)).ToList().ToPagedList(page,3);
             return View(category);
         }
 
