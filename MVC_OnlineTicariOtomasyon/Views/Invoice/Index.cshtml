@@ -7,35 +7,67 @@
 
 <h2>Invoices</h2>
 <br />
-<table  class="table table-bordered" style="margin-top:15px">
- 
+<table class="table table-bordered" style="margin-top:15px">
+
+    <tr>
+        <th>Invoice ID</th>
+        <th>Serial Number </th>
+        <th>Date-Clock </th>
+        <th>Deliverer</th>
+        <th>Acceptor</th>
+        <th>Total Price</th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
-            <th>Invoice ID</th>
-            <th>Serial Number </th>
-            <th>Date-Clock </th>
-            <th>Tax Office</th>
-            <th>Deliverer</th>
-            <th>Acceptor</th>
-            <th>Actions</th>
+            <td>@item.InvoiceID</td>
+            <td>@item.InvoiceSerial</td>
+            <td>@item.InvoinceDate</td>
+            <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
+            <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
+            <td>@item.InvoiceTotal</td>
+            <td>
+                <a href="/Invoice/GetInvoice/@item.InvoiceID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
+                <a href="/Invoice/InvoiceItemDetails/@item.InvoiceID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
+                <a href="/Invoice/InvoiceItemDetails/@item.InvoiceID" class="btn btn-warning"><i class="fas fa-list"></i> Pop-Up List</a>
+                <a href="/Invoice/AddInvoiceItem/@item.InvoiceID" class="btn btn-outline-dark"><i class="fas fa-plus"></i> New Invoice Item</a>
+            </td>
         </tr>
-  
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.InvoiceID</td>
-                <td>@item.InvoiceSerial</td>
-                <td>@item.InvoinceDate</td>
-                <td>@item.InvoiceTax</td>
-                <td>@item.Employee.EmployeeName @item.Employee.EmployeeSurname</td>
-                <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
-                <td>
-                    <a href="/Invoice/GetInvoice/@item.InvoiceID" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update</a>
-                    <a href="/Invoice/InvoiceItemDetails/@item.InvoiceID" class="btn btn-success"><i class="fas fa-info-circle"></i> Details</a>
-                </td>
-            </tr>
-        }
+    }
 </table>
 <a href="/Invoice/AddInvoice" class="btn btn-success">
     <i class="fas fa-barcode"></i> Add New Invoice
 </a>
+<button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#Modal1">Pop Up </button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Pop-Up Dialog</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Invoice ID</th>
+                        <th>Invoice Serial</th>
+                        <th>Date</th>
+                        <th>Employee</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.InvoiceID</td>
+                            <td>@item.InvoiceSerial</td>
+                            <td>@item.InvoinceDate</td>
+                            <td>@item.InvoiceTotal</td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close </button>
+            </div>
+        </div>
+    </div>
+</div>
 

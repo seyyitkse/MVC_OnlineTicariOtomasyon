@@ -21,7 +21,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         [StringLength(6)]
         public string InvoiceSequence { get; set; }
         public DateTime InvoinceDate { get; set; }
-
+        public decimal InvoiceTotal { get; set; }
         [Column(TypeName = "Varchar")]
         [StringLength(60)]
         public string InvoiceTax { get; set; }
