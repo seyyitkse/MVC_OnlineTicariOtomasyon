@@ -49,14 +49,13 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var Cash = DbStatistic.Sales.Sum(x => x.SalesTotalPrice).ToString();
             ViewBag.Cash = Cash;
 
-            DateTime today = DateTime.Today;
+            DateTime today = DateTime.Now.Date;
             var todaySales = DbStatistic.Sales.Count(x => x.SalesDate == today).ToString();
             ViewBag.TodaySales = todaySales;
 
             var todayCash = DbStatistic.Sales
-                .Where(x => x.SalesDate == today && x.SalesTotalPrice != null)
-                .Sum(y => (decimal?)y.SalesTotalPrice) ?? 0;
-
+                .Where(x => x.SalesDate == today)
+                .Sum(y => (decimal?)y.SalesTotalPrice).ToString();
             ViewBag.TodayCash = todayCash.ToString();
 
             var maxBrands = DbStatistic.Products.GroupBy(x => x.ProductBrand).OrderByDescending(z => z.Count()).Select(x => x.Key).FirstOrDefault();
