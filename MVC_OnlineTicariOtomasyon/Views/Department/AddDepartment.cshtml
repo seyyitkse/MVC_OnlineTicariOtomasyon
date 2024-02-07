@@ -14,9 +14,15 @@
     <button class="btn btn-info" id="btnAdd">Add</button>
 </form>
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     $('#btnAdd').click(function () {
-        alert('Adding department was successful!')
+        swal({
+            title: "Good job!",
+            text: "Adding department was successful!",
+            icon: "success",
+            button: "OK",
+        });
     });
 </script>
