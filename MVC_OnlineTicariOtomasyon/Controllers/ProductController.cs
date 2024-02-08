@@ -22,7 +22,43 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
                         }).ToList();
             }
         }
+        public List<SelectListItem> employees
+        {
+            get
+            {
+                return (from item in DbProduct.Sales.ToList()
+                        select new SelectListItem
+                        {
+                            Text = item.Employee.EmployeeName + " " + item.Employee.EmployeeSurname,
+                            Value = item.EmployeeID.ToString()
+                        }).ToList();
+            }
+        }
+        public List<SelectListItem> customers
+        {
+            get
+            {
+                return (from item in DbProduct.Customers.ToList()
+                        select new SelectListItem
+                        {
+                            Text = item.CustomerName + " " + item.CustomerSurname,
+                            Value = item.CustomerID.ToString()
+                        }).ToList();
+            }
+        }
 
+        public List<SelectListItem> products
+        {
+            get
+            {
+                return (from item in DbProduct.Products.ToList()
+                        select new SelectListItem
+                        {
+                            Text = item.ProductName + "(" + item.ProductBrand + ")",
+                            Value = item.ProductID.ToString()
+                        }).ToList();
+            }
+        }
         public ActionResult Index(string search)
         {
             //var product=(DbProduct.Products.Where(x=>x.ProductStatus==true)).ToList();
@@ -80,6 +116,19 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             newDetails.Products = DbProduct.Products.ToList();
             newDetails.ProductDetails= DbProduct.Details.ToList();
             return View(newDetails);
+        }
+        [HttpGet]
+        public ActionResult MakeSale()
+        {
+            ViewBag.Employees = employees;
+            ViewBag.Customers = customers;
+            ViewBag.Products = products;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult MakeSale(Sales sales)
+        {
+            return View();
         }
     }
 }

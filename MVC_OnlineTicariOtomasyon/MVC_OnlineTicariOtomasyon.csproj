@@ -2966,6 +2966,7 @@
     <Content Include="Views\Login\Partial2.cshtml" />
     <Content Include="Views\CustomerPanel\CustomerOrders.cshtml" />
     <Content Include="Views\AdminPanel\Index.cshtml" />
+    <Content Include="Views\Product\MakeSale.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
