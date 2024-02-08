@@ -76,9 +76,9 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
 
         public ActionResult GetSale(int id) 
         {
-            ViewBag.Employees = employees;
-            ViewBag.Customers = customers;
-            ViewBag.Products = products;
+            ViewBag.Employee = employees;
+            ViewBag.Customer = customers;
+            ViewBag.Product = products;
             var sale=DbSales.Sales.Find(id);
             return View("GetSale",sale);
         }

@@ -9,13 +9,13 @@
 <br />
 <form class="form-group" method="post">
     <label>Select the Employee</label>
-    @Html.DropDownListFor(model => model.EmployeeID, (List<SelectListItem>)ViewBag.Employees, new { @class = "form-control" })
+    @Html.DropDownListFor(model => model.EmployeeID, (List<SelectListItem>)ViewBag.Employee, new { @class = "form-control" })
     <br />
     <label>Select the Customer</label>
-    @Html.DropDownListFor(model => model.CustomerID, (List<SelectListItem>)ViewBag.Customers, new { @class = "form-control" })
+    @Html.DropDownListFor(model => model.CustomerID, (List<SelectListItem>)ViewBag.Customer, new { @class = "form-control" })
     <br />
     <label>Select the Product</label>
-    @Html.DropDownListFor(model => model.ProductID, (List<SelectListItem>)ViewBag.Products, new { @class = "form-control" })
+    @Html.DropDownListFor(model => model.ProductID, (List<SelectListItem>)ViewBag.Product, new { @class = "form-control" })
     <br />
     <label>Enter the Quantity</label>
     @Html.TextBoxFor(x => x.SalesQuantity, new { @class = "form-control" })

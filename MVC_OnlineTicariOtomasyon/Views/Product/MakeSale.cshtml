@@ -3,28 +3,30 @@
     ViewBag.Title = "MakeSale";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <br />
 <h2>New Sale Page</h2>
 <br />
 <form class="form-group" method="post">
+    <label>Product</label>
+    <input type="text" name="ProductID" value="@ViewBag.Product" class="form-control" readonly>
+    <br />
     <label>Select the Employee</label>
-    @Html.DropDownListFor(model => model.EmployeeID, (List<SelectListItem>)ViewBag.Employees, new { @class = "form-control" })
+    @Html.DropDownListFor(model => model.EmployeeID, (List<SelectListItem>)ViewBag.employee, new { @class = "form-control" })
     <br />
     <label>Select the Customer</label>
-    @Html.DropDownListFor(model => model.CustomerID, (List<SelectListItem>)ViewBag.Customers, new { @class = "form-control" })
-    <br />
-    <label>Select the Product</label>
-    @Html.DropDownListFor(model => model.ProductID, (List<SelectListItem>)ViewBag.Products, new { @class = "form-control" })
+    @Html.DropDownListFor(model => model.CustomerID, (List<SelectListItem>)ViewBag.customer, new { @class = "form-control" })
     <br />
     <label>Enter the Quantity</label>
-    @Html.TextBoxFor(x => x.SalesQuantity, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.SalesQuantity, new { @class = "form-control" })*@
+    <br />
+    <input type="number" name="SalesQuantity" min="0" max="@ViewBag.Quantity"class="form-control" onchange="sum()"  id="quantity"  />
     <br />
     <label>Enter the Sales Price</label>
-    @Html.TextBoxFor(x => x.SalesPrice, new { @class = "form-control" })
+    <input type="text" name="SalesPrice" value="@ViewBag.Sale" class="form-control" onkeyup="sum()" id="sale">
     <br />
     <label>Enter the Total Price</label>
-    @Html.TextBoxFor(x => x.SalesTotalPrice, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.SalesTotalPrice, new { @class = "form-control", @id = "total" })*@
+    <input type="text" name="SalesTotalPrice"  class="form-control" id="total">
     <br />
     <label>Enter the Date</label>
     @Html.TextBoxFor(x => x.SalesDate, new { @class = "form-control" })
@@ -34,6 +36,8 @@
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
 <script>
     $('#btnAdd').click(function () {
         swal({
@@ -44,3 +48,26 @@
         });
     });
 
+    function quantityControl() {
+        var inputValue = document.getElementById('quantity').value;
+        if (inputValue == "") {
+            swal("Warning", "Please enter quantity", "error");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+
+    function sum() {
+        // Miktar alanının geçerliliğini kontrol et
+        if (quantityControl()) {
+            var quantities = document.getElementById('quantity').value;
+            var sales = document.getElementById('sale').value;
+            var totalPrice = parseInt(quantities) * parseInt(sales);
+            if (!isNaN(totalPrice)) {
+                document.getElementById('total').value = totalPrice;
+            }
+        }
+    }
+</script>

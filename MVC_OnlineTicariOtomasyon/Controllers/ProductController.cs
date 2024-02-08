@@ -22,19 +22,19 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
                         }).ToList();
             }
         }
-        public List<SelectListItem> employees
+        public List<SelectListItem> employee
         {
             get
             {
-                return (from item in DbProduct.Sales.ToList()
+                return (from item in DbProduct.Employees.ToList()
                         select new SelectListItem
                         {
-                            Text = item.Employee.EmployeeName + " " + item.Employee.EmployeeSurname,
+                            Text = item.EmployeeName + " " + item.EmployeeSurname,
                             Value = item.EmployeeID.ToString()
                         }).ToList();
             }
         }
-        public List<SelectListItem> customers
+        public List<SelectListItem> customer
         {
             get
             {
@@ -47,18 +47,7 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             }
         }
 
-        public List<SelectListItem> products
-        {
-            get
-            {
-                return (from item in DbProduct.Products.ToList()
-                        select new SelectListItem
-                        {
-                            Text = item.ProductName + "(" + item.ProductBrand + ")",
-                            Value = item.ProductID.ToString()
-                        }).ToList();
-            }
-        }
+        
         public ActionResult Index(string search)
         {
             //var product=(DbProduct.Products.Where(x=>x.ProductStatus==true)).ToList();
@@ -118,17 +107,25 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             return View(newDetails);
         }
         [HttpGet]
-        public ActionResult MakeSale()
+        public ActionResult MakeSale(int id)
         {
-            ViewBag.Employees = employees;
-            ViewBag.Customers = customers;
-            ViewBag.Products = products;
+            ViewBag.employee = employee;
+            ViewBag.customer = customer;
+            var product=DbProduct.Products.Find(id);
+            ViewBag.Product=product.ProductID;
+            ViewBag.Sale = product.ProductSale;
+            ViewBag.Quantity = product.ProductStock;
             return View();
         }
         [HttpPost]
-        public ActionResult MakeSale(Sales sales)
+        public ActionResult MakeSale(Sales newSale)
         {
-            return View();
+            DbProduct.Sales.Add(newSale);
+            MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction trigger = new MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction();
+
+            trigger.PerformTrigger(newSale.ProductID, newSale.SalesQuantity);
+            DbProduct.SaveChanges();
+            return RedirectToAction("Index"); 
         }
     }
 }
