@@ -120,6 +120,7 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult MakeSale(Sales newSale)
         {
+            newSale.SalesDate=DateTime.Now;
             DbProduct.Sales.Add(newSale);
             MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction trigger = new MVC_OnlineTicariOtomasyon.Models.Trigger.TriggerAction();
 
