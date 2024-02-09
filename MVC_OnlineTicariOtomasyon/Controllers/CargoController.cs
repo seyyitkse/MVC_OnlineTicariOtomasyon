@@ -104,5 +104,10 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbCargo.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult CargoTracking(string id)
+        {
+            var details=DbCargo.CargoTrackings.Where(x=>x.TrackingCode==id).ToList();
+            return View(details);
+        }
     }
 }
