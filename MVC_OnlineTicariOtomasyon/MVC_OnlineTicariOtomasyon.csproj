@@ -174,8 +174,14 @@
     <Compile Include="Migrations\202401310625332_Add_Table_TodoList.designer.cs">
       <DependentUpon>202401310625332_Add_Table_TodoList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202402091221357_cargo_details_and_cargo_tracking_page.cs" />
+    <Compile Include="Migrations\202402091221357_cargo_details_and_cargo_tracking_page.designer.cs">
+      <DependentUpon>202402091221357_cargo_details_and_cargo_tracking_page.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes\Admin.cs" />
+    <Compile Include="Models\Classes\CargoDetails.cs" />
+    <Compile Include="Models\Classes\CargoTracking.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\GroupBrand.cs" />
     <Compile Include="Models\Classes\GroupCustomer.cs" />
@@ -3016,6 +3022,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401310625332_Add_Table_TodoList.resx">
       <DependentUpon>202401310625332_Add_Table_TodoList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202402091221357_cargo_details_and_cargo_tracking_page.resx">
+      <DependentUpon>202402091221357_cargo_details_and_cargo_tracking_page.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
