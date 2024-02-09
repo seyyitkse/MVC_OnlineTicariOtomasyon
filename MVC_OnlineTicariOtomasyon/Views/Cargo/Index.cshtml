@@ -1,0 +1,43 @@
+﻿@using MVC_OnlineTicariOtomasyon.Models.Classes
+@model List<CargoDetails>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Cargo Details Page</h2>
+<br />
+@using (Html.BeginForm("Index", "Cargo", FormMethod.Get))
+{
+    <p>
+        Cargo Tracking Code:@Html.TextBox("searchCargo")
+        <input type="submit" value="Find" />
+    </p>
+}
+<br />
+<table class="table table-bordered" style="margin-top:15px ">
+    <tr>
+        <th>Tracking Code</th>
+        <th>Description</th>
+        <th>Employee</th>
+        <th>Customer</th>
+        <th>Departure Date</th>
+        <th>Delivery Date</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.TrackingCode</td>
+            <td>@item.Description</td>
+            <td>@item.Employee</td>
+            <td>@item.Customer</td>
+            <td>@item.DepartureDate</td>
+            <td>@item.DeliveryDate</td>
+            <td>
+                <a href="/Category/GetCategory/@item.CargoDetailID" class="btn btn-primary"><i class="fas fa-info-circle"></i> Details</a>
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/Cargo/NewCargo" class="btn btn-success"><i class="fas fa-plus-circle"></i> New Cargo</a>

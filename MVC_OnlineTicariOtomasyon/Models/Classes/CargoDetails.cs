@@ -16,7 +16,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public string Description { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(10)]
+        [StringLength(11)]
         public string TrackingCode { get; set; }
 
         [Column(TypeName = "Varchar")]

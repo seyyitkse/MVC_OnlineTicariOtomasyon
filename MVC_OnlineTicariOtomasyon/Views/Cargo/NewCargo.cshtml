@@ -1,0 +1,38 @@
+﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.CargoDetails
+    @{
+        ViewBag.Title = "NewCargo";
+        Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <br />
+    <h2>Add New Cargo</h2>
+    <br />
+    <form class="form-group" method="post">
+        <label>Enter the Tracking Code</label>
+        <input type="text" name="TrackingCode" value="@ViewBag.tracking" class="form-control" readonly>
+        <br />
+        <label>Enter the Employee</label>
+        @Html.TextBoxFor(x => x.Employee, new { @class = "form-control" })
+        <br />
+        <label>Enter the Customer</label>
+        @Html.TextBoxFor(x => x.Customer, new { @class = "form-control" })
+        <br />
+        <label>Enter the Description</label>
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+        <br />
+        <label>Enter the Departure Date</label>
+        <input class="form-control" type="date" name="DepartureDate" />
+        <br />
+        <label>Enter the Delivery Date</label>
+        <input class="form-control" type="date" name="DeliveryDate" />
+        <br />
+        <button class="btn btn-info" id="btnAdd">Add</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script>
+    $('#btnAdd').click(function () {
+        alert('New cargo has been created.')
+    });
+    </script>
+
