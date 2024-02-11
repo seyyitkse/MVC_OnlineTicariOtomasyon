@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+@{ 
+    var graphic = new Chart(width: 500, height: 500);
+    graphic.AddTitle(text: "New Graphic");
+    graphic.Write();
+}
