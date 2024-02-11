@@ -53,6 +53,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
@@ -114,9 +117,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -188,6 +188,7 @@
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\CargoDetails.cs" />
     <Compile Include="Models\Classes\CargoTracking.cs" />
+    <Compile Include="Models\Classes\GoogleChart.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\GroupBrand.cs" />
     <Compile Include="Models\Classes\GroupCustomer.cs" />
@@ -2986,6 +2987,9 @@
     <Content Include="Views\Graphic\Index.cshtml" />
     <Content Include="Views\Graphic\Graphic.cshtml" />
     <Content Include="Views\Graphic\DatabaseGraph.cshtml" />
+    <Content Include="Views\Graphic\GoogleChart.cshtml" />
+    <Content Include="Views\Graphic\LineChart.cshtml" />
+    <Content Include="Views\Graphic\ColumnChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
