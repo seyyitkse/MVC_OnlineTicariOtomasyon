@@ -22,5 +22,6 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
         public DbSet<TodoList> TodoLists { get; set; }
         public DbSet<CargoDetails> CargoDetails { get; set; }
         public DbSet<CargoTracking> CargoTrackings { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

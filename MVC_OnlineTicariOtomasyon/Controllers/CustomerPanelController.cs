@@ -36,5 +36,56 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var orders=(DbCustomerPanel.Sales.Where(x=>x.CustomerID==customerid)).ToList();
             return View(orders);
         }
+        public void MessageCount()
+        {
+            var mail = (string)Session["CustomerMail"];
+            var incomingMessage = DbCustomerPanel.Messages.Count(x => x.Receiver == mail).ToString();
+            var outgoingMessage = DbCustomerPanel.Messages.Count(x => x.Sender == mail).ToString();
+            ViewBag.outgoing = outgoingMessage;
+            ViewBag.incoming = incomingMessage;
+        }
+        public ActionResult IncomingMessages()
+        {
+            var mail = (string)Session["CustomerMail"];   
+            var message = DbCustomerPanel.Messages.Where(x => x.Receiver == mail).OrderByDescending(x=>x.MessageID).ToList();
+            MessageCount();
+            return View(message);
+        }
+        public ActionResult OutgoingMessages()
+        {
+            var mail = (string)Session["CustomerMail"];
+            var message = DbCustomerPanel.Messages.Where(x => x.Sender == mail).OrderByDescending(x => x.MessageID).ToList();
+            MessageCount();
+            return View(message);
+        }
+      
+        public ActionResult MessageDetails(int? id)
+        {
+            var details=DbCustomerPanel.Messages.Where(x=>x.MessageID==id).ToList();    
+            var mail = (string)Session["CustomerMail"];
+            MessageCount();
+            return View(details);
+        }
+
+        [HttpGet]
+        public ActionResult NewMessage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult NewMessage(Message message)
+        {
+            message.Sender = (string)Session["CustomerMail"];
+            message.Date = DateTime.Now;
+            DbCustomerPanel.Messages.Add(message);
+            DbCustomerPanel.SaveChanges();
+            return RedirectToAction("IncomingMessages");
+        }
+        public PartialViewResult mailSection()
+        {
+            MessageCount();
+            return PartialView();
+        }
     }
 }

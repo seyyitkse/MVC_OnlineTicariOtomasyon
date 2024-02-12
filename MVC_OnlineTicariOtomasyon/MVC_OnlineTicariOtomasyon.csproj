@@ -193,6 +193,7 @@
     <Compile Include="Models\Classes\GroupBrand.cs" />
     <Compile Include="Models\Classes\GroupCustomer.cs" />
     <Compile Include="Models\Classes\GroupEmployee.cs" />
+    <Compile Include="Models\Classes\Message.cs" />
     <Compile Include="Models\Classes\Product-ProductDetail.cs" />
     <Compile Include="Models\Classes\ProductDetail.cs" />
     <Compile Include="Models\Classes\Expense.cs" />
@@ -2990,6 +2991,11 @@
     <Content Include="Views\Graphic\GoogleChart.cshtml" />
     <Content Include="Views\Graphic\LineChart.cshtml" />
     <Content Include="Views\Graphic\ColumnChart.cshtml" />
+    <Content Include="Views\CustomerPanel\IncomingMessages.cshtml" />
+    <Content Include="Views\CustomerPanel\OutgoingMessages.cshtml" />
+    <Content Include="Views\CustomerPanel\MessageDetails.cshtml" />
+    <Content Include="Views\CustomerPanel\NewMessage.cshtml" />
+    <Content Include="Views\CustomerPanel\mailSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
