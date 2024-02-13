@@ -17,8 +17,23 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CustomerMail"];
-            var values=DbCustomerPanel.Customers.FirstOrDefault(x=>x.CustomerMail == mail);
+            var values=DbCustomerPanel.Customers.Where(x=>x.CustomerMail == mail).ToList();
             ViewBag.CustomerMail = mail;
+
+            var customerID = DbCustomerPanel.Customers.Where(x => x.CustomerMail == mail).Select(y => y.CustomerID).FirstOrDefault();
+            var sales=DbCustomerPanel.Sales.Where(x=>x.CustomerID==customerID).Count();
+            ViewBag.Sales = sales;
+
+            var total = DbCustomerPanel.Sales.Where(x => x.CustomerID == customerID).Sum(y => y.SalesTotalPrice);
+            ViewBag.Total = total;
+
+            var customer = DbCustomerPanel.Customers.FirstOrDefault(x => x.CustomerMail == mail);
+            var fullName = $"{customer.CustomerName} {customer.CustomerSurname} ";
+
+            var cargo = DbCustomerPanel.CargoDetails.Where(y => y.Customer == fullName).ToList();
+            var cargoQuantity = DbCustomerPanel.CargoDetails.Where(y => y.Customer == fullName).Count();
+            ViewBag.Quantity = cargoQuantity;
+
             return View(values);
         }
         public ActionResult UpdateInfo(Customer customer)
@@ -96,7 +111,8 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var fullName = $"{customer.CustomerName } {customer.CustomerSurname} ";
 
             var cargo = DbCustomerPanel.CargoDetails.Where(y => y.Customer == fullName).ToList();
-            //var cargo=DbCustomerPanel.CargoDetails.ToList();
+            var cargoQuantity= DbCustomerPanel.CargoDetails.Where(y => y.Customer == fullName).Count();
+            ViewBag.Quantity=cargoQuantity;
             return View(cargo);
         }
         public ActionResult MyCargoDetails(string id)
@@ -109,6 +125,18 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
+        }
+        public PartialViewResult UpdatePartial()
+        {
+            var mail = (string)Session["CustomerMail"];
+            var customerid = DbCustomerPanel.Customers.Where(x => x.CustomerMail == mail).Select(y => y.CustomerID).FirstOrDefault();
+            var updatedCustomer = DbCustomerPanel.Customers.Find(customerid);     
+            return PartialView("UpdatePartial",updatedCustomer);
+        }
+        public PartialViewResult AnnouncementPartial()
+        {
+            var messages = DbCustomerPanel.Messages.Where(x => x.Sender == "admin").ToList();
+            return PartialView(messages);
         }
     }
 }

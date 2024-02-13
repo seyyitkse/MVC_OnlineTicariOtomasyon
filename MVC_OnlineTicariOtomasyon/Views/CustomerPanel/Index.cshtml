@@ -1,24 +1,290 @@
-﻿@model MVC_OnlineTicariOtomasyon.Models.Classes.Customer
+﻿@using MVC_OnlineTicariOtomasyon.Models.Classes
+@model List<Customer>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
-<h2>Customer Info Panel </h2>
-@using (Html.BeginForm("UpdateInfo", "CustomerPanel"))
-{
-    <table class="table">
-        <tr><td><label>Mail address: @HttpContext.Current.User.Identity.Name</label></td></tr>
-        @Html.HiddenFor(x => x.CustomerID)
-        <tr><td>@Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })</td></tr>
-        <tr><td>@Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })</td></tr>
-        <tr><td>@Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })</td></tr>
-        <tr><td>@Html.TextBoxFor(x => x.CustomerPassword, new { @class = "form-control" })</td></tr>
-    </table>
-    <button class="btn btn-danger" id="btnUpdate">Update Info</button>
-}
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script>
-    $('#btnUpdate').click(function () {
-        alert('Update customer was successful!')
-    });
-</script>
+@*<h2>Customer Info Panel </h2>
+    @using (Html.BeginForm("UpdateInfo", "CustomerPanel"))
+    {
+        <table class="table">
+            <tr><td><label>Mail address: @HttpContext.Current.User.Identity.Name</label></td></tr>
+            @Html.HiddenFor(x => x.CustomerID)
+            <tr><td>@Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })</td></tr>
+            <tr><td>@Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })</td></tr>
+            <tr><td>@Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })</td></tr>
+            <tr><td>@Html.TextBoxFor(x => x.CustomerPassword, new { @class = "form-control" })</td></tr>
+        </table>
+        <button class="btn btn-danger" id="btnUpdate">Update Info</button>
+    }
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $('#btnUpdate').click(function () {
+            alert('Update customer was successful!')
+        });
+    </script>*@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>AdminLTE 3 | User Profile</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Profile</h1>
+
+                    </div>
+
+                </div>
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- Main content -->
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <!-- Profile Image -->
+
+                        <div class="card card-primary card-outline">
+
+                            <div class="card-body box-profile">
+
+                                <div class="text-center">
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="~/Images/PngItem_1114675.png"
+                                         alt="User profile picture">
+
+                                </div>
+                                @foreach (var item in Model)
+                                {
+                                    <h3 class="profile-username text-center">@item.CustomerName @item.CustomerSurname </h3>
+
+                                    <p class="text-muted text-center">@item.CustomerMail</p>
+                                }
+                                <ul class="list-group list-group-unbordered mb-3">
+
+                                    <li class="list-group-item">
+
+                                        <b>Sales</b> <a class="float-right">@ViewBag.Sales</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>My Cargo Count</b> <a class="float-right">@ViewBag.Quantity</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>My total expenditure amount</b> <a class="float-right">@ViewBag.Total $</a>
+
+                                    </li>
+
+                                </ul>
+
+                                <a href="/CustomerPanel/MyCargo/" class="btn btn-primary btn-block"><b>My Cargo</b></a>
+
+                            </div>
+
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+                        <!-- About Me Box -->
+
+                        <div class="card card-primary">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">About Me</h3>
+
+                            </div>
+
+                            <!-- /.card-header -->
+                            @foreach (var y in Model)
+                            {
+                                <div class="card-body">
+
+
+                                    
+                                    <strong><i class="fas fa-book mr-1"></i> Profession</strong>
+
+                                    <p class="text-muted">
+
+                                        Computer Engineer
+
+                                    </p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+
+                                    <p class="text-muted">@y.CustomerCity</p>
+
+                                    <hr>
+
+                                    <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+
+                                    <p class="text-muted">
+                                        <span class="tag tag-danger">C#</span>
+
+                                        <span class="tag tag-success">ASP.NET MVC</span>
+
+                                        <span class="tag tag-info">ASP.NET Core</span>
+
+                                        <span class="tag tag-warning">MSSQL</span>
+                                    </p>
+
+                                    <hr>
+
+                                </div>
+                            }
+                                <!-- /.card-body -->
+
+                            </div>
+
+                        <!-- /.card -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                    <div class="col-md-9">
+
+                        <div class="card">
+
+                            <div class="card-header p-2">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item"><a class="nav-link active" href="#timeline" data-toggle="tab">Announcement</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                                </ul>    
+
+                            </div><!-- /.card-header -->
+
+                            <div class="card-body">
+
+                                <div class="tab-content">                    
+                                    <!-- /.tab-pane -->
+                                    <div class="active tab-pane" id="timeline">
+                                        <!-- The timeline -->
+                                        @Html.Action("AnnouncementPartial", "CustomerPanel")
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="settings">
+                                        @Html.Action("UpdatePartial", "CustomerPanel")
+                                    </div>
+                                    <!-- /.tab-pane -->
+
+                                </div>
+
+                                <!-- /.tab-content -->
+
+                            </div><!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.nav-tabs-custom -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+                <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    
+
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+
+</body>
+
+</html>

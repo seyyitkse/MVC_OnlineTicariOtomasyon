@@ -2232,6 +2232,7 @@
     <Content Include="Images\9.jpg" />
     <Content Include="Images\10.jpg" />
     <Content Include="Images\11.jpg" />
+    <Content Include="Images\PngItem_1114675.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -2998,6 +2999,8 @@
     <Content Include="Views\CustomerPanel\mailSection.cshtml" />
     <Content Include="Views\CustomerPanel\MyCargo.cshtml" />
     <Content Include="Views\CustomerPanel\MyCargoDetails.cshtml" />
+    <Content Include="Views\CustomerPanel\UpdatePartial.cshtml" />
+    <Content Include="Views\CustomerPanel\AnnouncementPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

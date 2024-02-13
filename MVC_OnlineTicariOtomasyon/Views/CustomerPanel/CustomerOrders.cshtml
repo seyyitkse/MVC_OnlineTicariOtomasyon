@@ -24,8 +24,8 @@
     {
         <tr>
             <td>@item.SalesID</td>
-            <td>@item.SalesDate</td>
-            <td>@item.ProductID</td>
+            <td>@item.SalesDate.ToShortDateString()</td>
+            <td>@item.Product.ProductName (@item.Product.ProductBrand)</td>
             <td>@item.SalesPrice</td>
             <td>@item.SalesQuantity</td>
             <td>@item.SalesTotalPrice</td>
