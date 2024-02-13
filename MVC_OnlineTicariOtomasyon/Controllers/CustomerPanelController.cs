@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
+using System.Xml.Linq;
 
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
@@ -87,5 +89,21 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             MessageCount();
             return PartialView();
         }
+        public ActionResult MyCargo()
+        {
+            var mail = (string)Session["CustomerMail"];
+            var customer = DbCustomerPanel.Customers.FirstOrDefault(x => x.CustomerMail == mail);
+            var fullName = $"{customer.CustomerName } {customer.CustomerSurname} ";
+
+            var cargo = DbCustomerPanel.CargoDetails.Where(y => y.Customer == fullName).ToList();
+            //var cargo=DbCustomerPanel.CargoDetails.ToList();
+            return View(cargo);
+        }
+        public ActionResult MyCargoDetails(string id)
+        {
+            var details = DbCustomerPanel.CargoTrackings.Where(x => x.TrackingCode == id).ToList();
+            return View(details);
+        }
+  
     }
 }
