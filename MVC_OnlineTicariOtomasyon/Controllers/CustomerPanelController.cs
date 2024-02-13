@@ -104,6 +104,11 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             var details = DbCustomerPanel.CargoTrackings.Where(x => x.TrackingCode == id).ToList();
             return View(details);
         }
-  
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
+        }
     }
 }
