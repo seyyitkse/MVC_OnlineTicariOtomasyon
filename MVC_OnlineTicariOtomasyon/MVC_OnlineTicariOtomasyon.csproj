@@ -189,6 +189,7 @@
     <Compile Include="Models\Classes\Admin.cs" />
     <Compile Include="Models\Classes\CargoDetails.cs" />
     <Compile Include="Models\Classes\CargoTracking.cs" />
+    <Compile Include="Models\Classes\Dynamic.cs" />
     <Compile Include="Models\Classes\GoogleChart.cs" />
     <Compile Include="Models\Classes\Context.cs" />
     <Compile Include="Models\Classes\GroupBrand.cs" />
@@ -3003,6 +3004,7 @@
     <Content Include="Views\CustomerPanel\UpdatePartial.cshtml" />
     <Content Include="Views\CustomerPanel\AnnouncementPartial.cshtml" />
     <Content Include="Views\Error\PageError.cshtml" />
+    <Content Include="Views\Invoice\DynamicInvoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

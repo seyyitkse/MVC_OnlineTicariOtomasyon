@@ -98,5 +98,26 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             DbInvoice.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult DynamicInvoice()
+        {
+            Dynamic dynamicInvoice=new Dynamic();
+            dynamicInvoice.invoices = DbInvoice.Invoinces.ToList();
+            dynamicInvoice.invoiceItems=DbInvoice.InvoinceItems.ToList();
+            return View(dynamicInvoice);
+        }
+        public ActionResult AddDynamicInvoice(string InvoiceSerial,string InvoiceSequence,DateTime InvoiveDate,string InvoiceTax,int CustomerID,int EmployeeID,decimal InvoiceTotal,InvoiceItem[] invoiceitems)
+        {
+            Invoice newDynamicInvoice=new Invoice();
+            newDynamicInvoice.InvoiceSerial = InvoiceSerial;
+            newDynamicInvoice.InvoiceSequence = InvoiceSequence;
+            newDynamicInvoice.InvoinceDate = InvoiveDate;
+            newDynamicInvoice.InvoiceTax= InvoiceTax;
+            newDynamicInvoice.CustomerID = CustomerID;
+            newDynamicInvoice.EmployeeID = EmployeeID;
+            newDynamicInvoice.InvoiceTotal= InvoiceTotal;
+            DbInvoice.Invoinces.Add(newDynamicInvoice);
+            DbInvoice.SaveChanges();
+            return Json("Added new Invoice", JsonRequestBehavior.AllowGet);
+        }
     }
 }

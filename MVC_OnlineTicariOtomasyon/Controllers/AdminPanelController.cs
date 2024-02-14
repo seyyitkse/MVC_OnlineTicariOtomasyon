@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
@@ -15,6 +16,9 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var user = (string)Session["AdminUsername"];
+            var id = DbAdmin.Admins.Where(x => x.AdminUsername == user).Select(y => y.AdminID).FirstOrDefault();
+            var admin = DbAdmin.Employees.Where(x => x.EmployeeID == id).Select(y=>y.EmployeeName+" "+y.EmployeeSurname).FirstOrDefault();
+            ViewBag.name = admin;
             var values = DbAdmin.Admins.FirstOrDefault(x => x.AdminUsername == user);
             ViewBag.CustomerMail = user;
             return View(values);
@@ -25,6 +29,12 @@ namespace MVC_OnlineTicariOtomasyon.Controllers
             updatedAdmin.AdminPassword = admin.AdminPassword;
             DbAdmin.SaveChanges();
             return RedirectToAction("Index");
+        }
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
     }
 }

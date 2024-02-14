@@ -33,9 +33,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
+                    <a class="dropdown-item" href="/AdminPanel/Index/">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="login.html">Logout</a>
+                    <a class="dropdown-item" href="/AdminPanel/Logout">Logout</a>
                 </div>
             </li>
         </ul>
@@ -66,7 +66,7 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-desktop"></i></div>
                             Employees
                         </a>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="/Expense/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                             Expenses
                         </a>
@@ -88,6 +88,10 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-ellipsis-h"></i></div>
                             Invoices
                         </a>
+                        <a class="nav-link" href="/Invoice/DynamicInvoice/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-ellipsis-h"></i></div>
+                            Dynamic Invoices
+                        </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="layout-static.html">Static Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a></nav>
                         </div>
@@ -106,10 +110,10 @@
                                     <nav class="sb-sidenav-menu-nested nav">
                                         <a class="nav-link" href="/Graphic/GoogleChart/">Pie Graphic</a>
                                         <a class="nav-link" href="/Graphic/LineChart/">Line Graphic</a>
-                                    <a class="nav-link" href="register.html">Column Graphic</a><a class="nav-link" href="password.html"></a>
+                                        <a class="nav-link" href="register.html">Column Graphic</a><a class="nav-link" href="password.html"></a>
                                     </nav>
                                 </div>
-                         
+
                             </nav>
                         </div>
                         <div class="sb-sidenav-menu-heading">Addons</div>
@@ -133,7 +137,7 @@
                 </div>
                 <div class="sb-sidenav-footer">
                     <div class="small">Logged in as:</div>
-                    Start Bootstrap
+                    @ViewBag.name
                 </div>
             </nav>
         </div>
