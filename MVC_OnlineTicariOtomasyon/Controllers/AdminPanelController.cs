@@ -7,11 +7,11 @@ using System.Web.Mvc;
 
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
+    [Authorize]
     public class AdminPanelController : Controller
     {
         // GET: AdminPanel
         Context DbAdmin=new Context();
-        [Authorize]
         public ActionResult Index()
         {
             var user = (string)Session["AdminUsername"];
