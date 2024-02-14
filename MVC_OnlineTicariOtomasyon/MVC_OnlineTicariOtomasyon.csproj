@@ -143,6 +143,7 @@
     <Compile Include="Controllers\CustomerPanelController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -3001,6 +3002,7 @@
     <Content Include="Views\CustomerPanel\MyCargoDetails.cshtml" />
     <Content Include="Views\CustomerPanel\UpdatePartial.cshtml" />
     <Content Include="Views\CustomerPanel\AnnouncementPartial.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
