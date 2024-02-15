@@ -7,9 +7,11 @@ using System.Web.Mvc;
 
 namespace MVC_OnlineTicariOtomasyon.Controllers
 {
+    [Authorize(Roles ="B")]
     public class DepartmentController : Controller
     {
         Context DbDepartment=new Context();
+        
         public ActionResult Index()
         {
             var department=(DbDepartment.Departments.Where(x=>x.DepartmentStatus==true)).ToList();

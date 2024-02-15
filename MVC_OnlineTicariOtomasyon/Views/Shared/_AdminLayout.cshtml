@@ -58,10 +58,13 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                             Customers
                         </a>
-                        <a class="nav-link" href="/Department/Index/">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tsitemap"></i></div>
-                            Departments
-                        </a>
+                        @if (User.IsInRole("B"))
+                        {
+                            <a class="nav-link" href="/Department/Index/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tsitemap"></i></div>
+                                Departments
+                            </a>
+                        }
                         <a class="nav-link" href="/Employee/Index/">
                             <div class="sb-nav-link-icon"><i class="fas fa-desktop"></i></div>
                             Employees

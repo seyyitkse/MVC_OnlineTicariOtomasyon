@@ -22,7 +22,7 @@ namespace MVC_OnlineTicariOtomasyon.Models.Classes
 
         [Column(TypeName = "Char")]
         [StringLength(1)]
-        public string AdminAuthority { get; set; }
+        public string Role { get; set; }
         public bool AdminStatus { get; set; }
     }
 }
