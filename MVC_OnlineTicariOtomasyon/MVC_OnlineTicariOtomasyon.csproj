@@ -213,6 +213,7 @@
     <Compile Include="Roles\AdminRoleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="1-Database\connectionstring.png" />
     <Content Include="AdminLTE-3.0.4\.gitignore" />
     <Content Include="AdminLTE-3.0.4\build\config\postcss.config.js" />
     <Content Include="AdminLTE-3.0.4\build\config\rollup.config.js" />
